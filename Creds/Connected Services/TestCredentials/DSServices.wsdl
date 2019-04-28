@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Debitsuccess.WebServices.WCF" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Debitsuccess.WebServices.WCF" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Debitsuccess.WebServices.WCF/Imports">
+      <xsd:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd2" namespace="Debitsuccess.WebServices.WCF" />
+      <xsd:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" />
+      <xsd:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" />
+      <xsd:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.RequestMessages" />
+      <xsd:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.ResponseMessages" />
+      <xsd:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="DSServices_CancelAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelAccount" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_CancelAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetTermsAndConditions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTermsAndConditions" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetTermsAndConditions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTermsAndConditionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCallsHistoryForDateRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCallsHistoryForDateRange" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCallsHistoryForDateRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCallsHistoryForDateRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCallsHistoryByAccountId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCallsHistoryByAccountId" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCallsHistoryByAccountId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCallsHistoryByAccountIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_PostCustomerAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostCustomerAccount" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_PostCustomerAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostCustomerAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_PostCustomerAccountForExistingCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostCustomerAccountForExistingCustomer" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_PostCustomerAccountForExistingCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostCustomerAccountForExistingCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCustomerAccountByAccountId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerAccountByAccountId" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCustomerAccountByAccountId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerAccountByAccountIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCustomerAccountWithFeesByAccountId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerAccountWithFeesByAccountId" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCustomerAccountWithFeesByAccountId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerAccountWithFeesByAccountIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCustomerAccountForDateRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerAccountForDateRange" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCustomerAccountForDateRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerAccountForDateRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCustomerAccountWithFeesForDateRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerAccountWithFeesForDateRange" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCustomerAccountWithFeesForDateRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerAccountWithFeesForDateRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_CreateSchedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSchedule" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_CreateSchedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustNextPaymentDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustNextPaymentDate" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustNextPaymentDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustNextPaymentDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustDateDayOfPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustDateDayOfPayment" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustDateDayOfPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustDateDayOfPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountLastAccess_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountLastAccess" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountLastAccess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountLastAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountExternalAccountReferenceNo_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountExternalAccountReferenceNo" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountExternalAccountReferenceNo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountExternalAccountReferenceNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountNextPaymentDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountNextPaymentDate" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountNextPaymentDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountNextPaymentDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountTotalValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountTotalValue" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountTotalValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountTotalValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountMinimumTerm_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountMinimumTerm" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountMinimumTerm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountMinimumTermResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountStartDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountStartDate" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountStartDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountStartDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_StopPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopPayment" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_StopPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_PaymentCollected_InputMessage">
+    <wsdl:part name="parameters" element="tns:PaymentCollected" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_PaymentCollected_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PaymentCollectedResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_ChangePaymentMethod_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePaymentMethod" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_ChangePaymentMethod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePaymentMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_InitiateRefund_InputMessage">
+    <wsdl:part name="parameters" element="tns:InitiateRefund" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_InitiateRefund_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitiateRefundResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPayMethodDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPayMethodDetails" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPayMethodDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPayMethodDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustCatchUpPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustCatchUpPayment" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustCatchUpPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustCatchUpPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetAuditHistoryForDateRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditHistoryForDateRange" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetAuditHistoryForDateRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditHistoryForDateRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetAuditHistoryByAccountId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditHistoryByAccountId" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetAuditHistoryByAccountId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditHistoryByAccountIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryForDateRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryForDateRange" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryForDateRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryForDateRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetBPayTransactionsByDateRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBPayTransactionsByDateRange" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetBPayTransactionsByDateRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBPayTransactionsByDateRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryWithFeesForDateRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryWithFeesForDateRange" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryWithFeesForDateRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryWithFeesForDateRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryForDateRangeCW_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryForDateRangeCW" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryForDateRangeCW_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryForDateRangeCWResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryWithFeesForDateRangeCW_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryWithFeesForDateRangeCW" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryWithFeesForDateRangeCW_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryWithFeesForDateRangeCWResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryByAccountId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryByAccountId" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryByAccountId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryByAccountIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryWithFeesByAccountId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryWithFeesByAccountId" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryWithFeesByAccountId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryWithFeesByAccountIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_ResumePayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResumePayment" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_ResumePayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResumePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateClientAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientAddress" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateClientAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateClientAddressCW_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientAddressCW" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateClientAddressCW_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientAddressCWResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateClientDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientDetails" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateClientDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateGuarantorDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGuarantorDetails" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateGuarantorDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGuarantorDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateClientEmailAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientEmailAddress" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateClientEmailAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientEmailAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateClientEmailAddressCW_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientEmailAddressCW" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateClientEmailAddressCW_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientEmailAddressCWResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateClientPhoneNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientPhoneNumber" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateClientPhoneNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientPhoneNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateClientPhoneNumberCW_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientPhoneNumberCW" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_UpdateClientPhoneNumberCW_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientPhoneNumberCWResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_DeletePaySchedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePaySchedule" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_DeletePaySchedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePayScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustPaySchedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustPaySchedule" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustPaySchedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustPayScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustSuspensionEndDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustSuspensionEndDate" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustSuspensionEndDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustSuspensionEndDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_SuspendAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:SuspendAccount" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_SuspendAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SuspendAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_SuspendAccountBetweenDates_InputMessage">
+    <wsdl:part name="parameters" element="tns:SuspendAccountBetweenDates" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_SuspendAccountBetweenDates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SuspendAccountBetweenDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_SuspendAccountForNumberOfPaymentCycles_InputMessage">
+    <wsdl:part name="parameters" element="tns:SuspendAccountForNumberOfPaymentCycles" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_SuspendAccountForNumberOfPaymentCycles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SuspendAccountForNumberOfPaymentCyclesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountAppendNotes_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountAppendNotes" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountAppendNotes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountAppendNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustPaymentInAdvance_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustPaymentInAdvance" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustPaymentInAdvance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustPaymentInAdvanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountPaymentMethod_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountPaymentMethod" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountPaymentMethod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountPaymentMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountFixedTerm_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountFixedTerm" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountFixedTerm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountFixedTermResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountFixedTermAF_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountFixedTermAF" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountFixedTermAF_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountFixedTermAFResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_ProcessCardPaymentForCustomerAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCardPaymentForCustomerAccount" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_ProcessCardPaymentForCustomerAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCardPaymentForCustomerAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_ProcessOneOffCardPaymentForCustomerAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessOneOffCardPaymentForCustomerAccount" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_ProcessOneOffCardPaymentForCustomerAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessOneOffCardPaymentForCustomerAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_ProcessRealTimeCardPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessRealTimeCardPayment" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_ProcessRealTimeCardPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessRealTimeCardPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCardPaymentStatusForCustomerAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardPaymentStatusForCustomerAccount" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCardPaymentStatusForCustomerAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardPaymentStatusForCustomerAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetFacilityAccountConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacilityAccountConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetFacilityAccountConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacilityAccountConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetOverdueStatusHistoryForDateRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOverdueStatusHistoryForDateRange" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetOverdueStatusHistoryForDateRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOverdueStatusHistoryForDateRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentToken" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCasualPaymentToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasualPaymentToken" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCasualPaymentToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasualPaymentTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCasualPaymentsForDateRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasualPaymentsForDateRange" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCasualPaymentsForDateRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasualPaymentsForDateRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCasualPaymentsByPaymentRef_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasualPaymentsByPaymentRef" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetCasualPaymentsByPaymentRef_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCasualPaymentsByPaymentRefResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_DeletePenaltyFeeSchedule_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePenaltyFeeSchedule" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_DeletePenaltyFeeSchedule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePenaltyFeeScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetMonthlyCollections_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonthlyCollections" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetMonthlyCollections_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMonthlyCollectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetActiveAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveAccounts" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetActiveAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_TransferCustomerAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransferCustomerAccount" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_TransferCustomerAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransferCustomerAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryByStatusForDateRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryByStatusForDateRange" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryByStatusForDateRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryByStatusForDateRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryStatusByAccountId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryStatusByAccountId" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetPaymentHistoryStatusByAccountId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoryStatusByAccountIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountTerminationDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountTerminationDate" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_AdjustAccountTerminationDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AdjustAccountTerminationDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetClosedAccountsForDateRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClosedAccountsForDateRange" />
+  </wsdl:message>
+  <wsdl:message name="DSServices_GetClosedAccountsForDateRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClosedAccountsForDateRangeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DSServices">
+    <wsdl:operation name="CancelAccount">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/CancelAccount" message="tns:DSServices_CancelAccount_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/CancelAccountResponse" message="tns:DSServices_CancelAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTermsAndConditions">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetTermsAndConditions" message="tns:DSServices_GetTermsAndConditions_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetTermsAndConditionsResponse" message="tns:DSServices_GetTermsAndConditions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCallsHistoryForDateRange">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCallsHistoryForDateRange" message="tns:DSServices_GetCallsHistoryForDateRange_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCallsHistoryForDateRangeResponse" message="tns:DSServices_GetCallsHistoryForDateRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCallsHistoryByAccountId">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCallsHistoryByAccountId" message="tns:DSServices_GetCallsHistoryByAccountId_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCallsHistoryByAccountIdResponse" message="tns:DSServices_GetCallsHistoryByAccountId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostCustomerAccount">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/PostCustomerAccount" message="tns:DSServices_PostCustomerAccount_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/PostCustomerAccountResponse" message="tns:DSServices_PostCustomerAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostCustomerAccountForExistingCustomer">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/PostCustomerAccountForExistingCustomer" message="tns:DSServices_PostCustomerAccountForExistingCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/PostCustomerAccountForExistingCustomerResponse" message="tns:DSServices_PostCustomerAccountForExistingCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAccountByAccountId">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountByAccountId" message="tns:DSServices_GetCustomerAccountByAccountId_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountByAccountIdResponse" message="tns:DSServices_GetCustomerAccountByAccountId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAccountWithFeesByAccountId">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountWithFeesByAccountId" message="tns:DSServices_GetCustomerAccountWithFeesByAccountId_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountWithFeesByAccountIdResponse" message="tns:DSServices_GetCustomerAccountWithFeesByAccountId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAccountForDateRange">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountForDateRange" message="tns:DSServices_GetCustomerAccountForDateRange_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountForDateRangeResponse" message="tns:DSServices_GetCustomerAccountForDateRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAccountWithFeesForDateRange">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountWithFeesForDateRange" message="tns:DSServices_GetCustomerAccountWithFeesForDateRange_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountWithFeesForDateRangeResponse" message="tns:DSServices_GetCustomerAccountWithFeesForDateRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSchedule">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/CreateSchedule" message="tns:DSServices_CreateSchedule_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/CreateScheduleResponse" message="tns:DSServices_CreateSchedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustNextPaymentDate">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustNextPaymentDate" message="tns:DSServices_AdjustNextPaymentDate_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustNextPaymentDateResponse" message="tns:DSServices_AdjustNextPaymentDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustDateDayOfPayment">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustDateDayOfPayment" message="tns:DSServices_AdjustDateDayOfPayment_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustDateDayOfPaymentResponse" message="tns:DSServices_AdjustDateDayOfPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountLastAccess">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountLastAccess" message="tns:DSServices_AdjustAccountLastAccess_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountLastAccessResponse" message="tns:DSServices_AdjustAccountLastAccess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountExternalAccountReferenceNo">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountExternalAccountReferenceNo" message="tns:DSServices_AdjustAccountExternalAccountReferenceNo_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountExternalAccountReferenceNoResponse" message="tns:DSServices_AdjustAccountExternalAccountReferenceNo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountNextPaymentDate">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountNextPaymentDate" message="tns:DSServices_AdjustAccountNextPaymentDate_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountNextPaymentDateResponse" message="tns:DSServices_AdjustAccountNextPaymentDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountTotalValue">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountTotalValue" message="tns:DSServices_AdjustAccountTotalValue_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountTotalValueResponse" message="tns:DSServices_AdjustAccountTotalValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountMinimumTerm">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountMinimumTerm" message="tns:DSServices_AdjustAccountMinimumTerm_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountMinimumTermResponse" message="tns:DSServices_AdjustAccountMinimumTerm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountStartDate">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountStartDate" message="tns:DSServices_AdjustAccountStartDate_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountStartDateResponse" message="tns:DSServices_AdjustAccountStartDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopPayment">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/StopPayment" message="tns:DSServices_StopPayment_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/StopPaymentResponse" message="tns:DSServices_StopPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentCollected">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/PaymentCollected" message="tns:DSServices_PaymentCollected_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/PaymentCollectedResponse" message="tns:DSServices_PaymentCollected_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePaymentMethod">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/ChangePaymentMethod" message="tns:DSServices_ChangePaymentMethod_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/ChangePaymentMethodResponse" message="tns:DSServices_ChangePaymentMethod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitiateRefund">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/InitiateRefund" message="tns:DSServices_InitiateRefund_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/InitiateRefundResponse" message="tns:DSServices_InitiateRefund_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayMethodDetails">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPayMethodDetails" message="tns:DSServices_GetPayMethodDetails_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPayMethodDetailsResponse" message="tns:DSServices_GetPayMethodDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustCatchUpPayment">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustCatchUpPayment" message="tns:DSServices_AdjustCatchUpPayment_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustCatchUpPaymentResponse" message="tns:DSServices_AdjustCatchUpPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditHistoryForDateRange">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetAuditHistoryForDateRange" message="tns:DSServices_GetAuditHistoryForDateRange_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetAuditHistoryForDateRangeResponse" message="tns:DSServices_GetAuditHistoryForDateRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditHistoryByAccountId">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetAuditHistoryByAccountId" message="tns:DSServices_GetAuditHistoryByAccountId_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetAuditHistoryByAccountIdResponse" message="tns:DSServices_GetAuditHistoryByAccountId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryForDateRange">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryForDateRange" message="tns:DSServices_GetPaymentHistoryForDateRange_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryForDateRangeResponse" message="tns:DSServices_GetPaymentHistoryForDateRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBPayTransactionsByDateRange">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetBPayTransactionsByDateRange" message="tns:DSServices_GetBPayTransactionsByDateRange_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetBPayTransactionsByDateRangeResponse" message="tns:DSServices_GetBPayTransactionsByDateRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryWithFeesForDateRange">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryWithFeesForDateRange" message="tns:DSServices_GetPaymentHistoryWithFeesForDateRange_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryWithFeesForDateRangeResponse" message="tns:DSServices_GetPaymentHistoryWithFeesForDateRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryForDateRangeCW">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryForDateRangeCW" message="tns:DSServices_GetPaymentHistoryForDateRangeCW_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryForDateRangeCWResponse" message="tns:DSServices_GetPaymentHistoryForDateRangeCW_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryWithFeesForDateRangeCW">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryWithFeesForDateRangeCW" message="tns:DSServices_GetPaymentHistoryWithFeesForDateRangeCW_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryWithFeesForDateRangeCWResponse" message="tns:DSServices_GetPaymentHistoryWithFeesForDateRangeCW_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryByAccountId">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryByAccountId" message="tns:DSServices_GetPaymentHistoryByAccountId_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryByAccountIdResponse" message="tns:DSServices_GetPaymentHistoryByAccountId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryWithFeesByAccountId">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryWithFeesByAccountId" message="tns:DSServices_GetPaymentHistoryWithFeesByAccountId_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryWithFeesByAccountIdResponse" message="tns:DSServices_GetPaymentHistoryWithFeesByAccountId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResumePayment">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/ResumePayment" message="tns:DSServices_ResumePayment_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/ResumePaymentResponse" message="tns:DSServices_ResumePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientAddress">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateClientAddress" message="tns:DSServices_UpdateClientAddress_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateClientAddressResponse" message="tns:DSServices_UpdateClientAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientAddressCW">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateClientAddressCW" message="tns:DSServices_UpdateClientAddressCW_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateClientAddressCWResponse" message="tns:DSServices_UpdateClientAddressCW_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientDetails">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateClientDetails" message="tns:DSServices_UpdateClientDetails_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateClientDetailsResponse" message="tns:DSServices_UpdateClientDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGuarantorDetails">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateGuarantorDetails" message="tns:DSServices_UpdateGuarantorDetails_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateGuarantorDetailsResponse" message="tns:DSServices_UpdateGuarantorDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientEmailAddress">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateClientEmailAddress" message="tns:DSServices_UpdateClientEmailAddress_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateClientEmailAddressResponse" message="tns:DSServices_UpdateClientEmailAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientEmailAddressCW">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateClientEmailAddressCW" message="tns:DSServices_UpdateClientEmailAddressCW_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateClientEmailAddressCWResponse" message="tns:DSServices_UpdateClientEmailAddressCW_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientPhoneNumber">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateClientPhoneNumber" message="tns:DSServices_UpdateClientPhoneNumber_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateClientPhoneNumberResponse" message="tns:DSServices_UpdateClientPhoneNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientPhoneNumberCW">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateClientPhoneNumberCW" message="tns:DSServices_UpdateClientPhoneNumberCW_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/UpdateClientPhoneNumberCWResponse" message="tns:DSServices_UpdateClientPhoneNumberCW_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePaySchedule">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/DeletePaySchedule" message="tns:DSServices_DeletePaySchedule_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/DeletePayScheduleResponse" message="tns:DSServices_DeletePaySchedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustPaySchedule">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustPaySchedule" message="tns:DSServices_AdjustPaySchedule_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustPayScheduleResponse" message="tns:DSServices_AdjustPaySchedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustSuspensionEndDate">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustSuspensionEndDate" message="tns:DSServices_AdjustSuspensionEndDate_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustSuspensionEndDateResponse" message="tns:DSServices_AdjustSuspensionEndDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SuspendAccount">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/SuspendAccount" message="tns:DSServices_SuspendAccount_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/SuspendAccountResponse" message="tns:DSServices_SuspendAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SuspendAccountBetweenDates">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/SuspendAccountBetweenDates" message="tns:DSServices_SuspendAccountBetweenDates_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/SuspendAccountBetweenDatesResponse" message="tns:DSServices_SuspendAccountBetweenDates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SuspendAccountForNumberOfPaymentCycles">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/SuspendAccountForNumberOfPaymentCycles" message="tns:DSServices_SuspendAccountForNumberOfPaymentCycles_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/SuspendAccountForNumberOfPaymentCyclesResponse" message="tns:DSServices_SuspendAccountForNumberOfPaymentCycles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountAppendNotes">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountAppendNotes" message="tns:DSServices_AdjustAccountAppendNotes_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountAppendNotesResponse" message="tns:DSServices_AdjustAccountAppendNotes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustPaymentInAdvance">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustPaymentInAdvance" message="tns:DSServices_AdjustPaymentInAdvance_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustPaymentInAdvanceResponse" message="tns:DSServices_AdjustPaymentInAdvance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountPaymentMethod">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountPaymentMethod" message="tns:DSServices_AdjustAccountPaymentMethod_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountPaymentMethodResponse" message="tns:DSServices_AdjustAccountPaymentMethod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountFixedTerm">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountFixedTerm" message="tns:DSServices_AdjustAccountFixedTerm_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountFixedTermResponse" message="tns:DSServices_AdjustAccountFixedTerm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountFixedTermAF">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountFixedTermAF" message="tns:DSServices_AdjustAccountFixedTermAF_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountFixedTermAFResponse" message="tns:DSServices_AdjustAccountFixedTermAF_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCardPaymentForCustomerAccount">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/ProcessCardPaymentForCustomerAccount" message="tns:DSServices_ProcessCardPaymentForCustomerAccount_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/ProcessCardPaymentForCustomerAccountResponse" message="tns:DSServices_ProcessCardPaymentForCustomerAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessOneOffCardPaymentForCustomerAccount">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/ProcessOneOffCardPaymentForCustomerAccount" message="tns:DSServices_ProcessOneOffCardPaymentForCustomerAccount_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/ProcessOneOffCardPaymentForCustomerAccountResponse" message="tns:DSServices_ProcessOneOffCardPaymentForCustomerAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessRealTimeCardPayment">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/ProcessRealTimeCardPayment" message="tns:DSServices_ProcessRealTimeCardPayment_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/ProcessRealTimeCardPaymentResponse" message="tns:DSServices_ProcessRealTimeCardPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardPaymentStatusForCustomerAccount">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCardPaymentStatusForCustomerAccount" message="tns:DSServices_GetCardPaymentStatusForCustomerAccount_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCardPaymentStatusForCustomerAccountResponse" message="tns:DSServices_GetCardPaymentStatusForCustomerAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacilityAccountConfiguration">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetFacilityAccountConfiguration" message="tns:DSServices_GetFacilityAccountConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetFacilityAccountConfigurationResponse" message="tns:DSServices_GetFacilityAccountConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOverdueStatusHistoryForDateRange">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetOverdueStatusHistoryForDateRange" message="tns:DSServices_GetOverdueStatusHistoryForDateRange_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetOverdueStatusHistoryForDateRangeResponse" message="tns:DSServices_GetOverdueStatusHistoryForDateRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentToken">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentToken" message="tns:DSServices_GetPaymentToken_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentTokenResponse" message="tns:DSServices_GetPaymentToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualPaymentToken">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCasualPaymentToken" message="tns:DSServices_GetCasualPaymentToken_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCasualPaymentTokenResponse" message="tns:DSServices_GetCasualPaymentToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualPaymentsForDateRange">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCasualPaymentsForDateRange" message="tns:DSServices_GetCasualPaymentsForDateRange_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCasualPaymentsForDateRangeResponse" message="tns:DSServices_GetCasualPaymentsForDateRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualPaymentsByPaymentRef">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCasualPaymentsByPaymentRef" message="tns:DSServices_GetCasualPaymentsByPaymentRef_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetCasualPaymentsByPaymentRefResponse" message="tns:DSServices_GetCasualPaymentsByPaymentRef_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePenaltyFeeSchedule">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/DeletePenaltyFeeSchedule" message="tns:DSServices_DeletePenaltyFeeSchedule_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/DeletePenaltyFeeScheduleResponse" message="tns:DSServices_DeletePenaltyFeeSchedule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCollections">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetMonthlyCollections" message="tns:DSServices_GetMonthlyCollections_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetMonthlyCollectionsResponse" message="tns:DSServices_GetMonthlyCollections_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveAccounts">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetActiveAccounts" message="tns:DSServices_GetActiveAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetActiveAccountsResponse" message="tns:DSServices_GetActiveAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferCustomerAccount">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/TransferCustomerAccount" message="tns:DSServices_TransferCustomerAccount_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/TransferCustomerAccountResponse" message="tns:DSServices_TransferCustomerAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryByStatusForDateRange">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryByStatusForDateRange" message="tns:DSServices_GetPaymentHistoryByStatusForDateRange_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryByStatusForDateRangeResponse" message="tns:DSServices_GetPaymentHistoryByStatusForDateRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryStatusByAccountId">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryStatusByAccountId" message="tns:DSServices_GetPaymentHistoryStatusByAccountId_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryStatusByAccountIdResponse" message="tns:DSServices_GetPaymentHistoryStatusByAccountId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountTerminationDate">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountTerminationDate" message="tns:DSServices_AdjustAccountTerminationDate_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountTerminationDateResponse" message="tns:DSServices_AdjustAccountTerminationDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClosedAccountsForDateRange">
+      <wsdl:input wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetClosedAccountsForDateRange" message="tns:DSServices_GetClosedAccountsForDateRange_InputMessage" />
+      <wsdl:output wsaw:Action="Debitsuccess.WebServices.WCF/DSServices/GetClosedAccountsForDateRangeResponse" message="tns:DSServices_GetClosedAccountsForDateRange_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

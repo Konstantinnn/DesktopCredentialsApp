@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7b949486-a3a4-4c5f-b0c4-c8b780c3d888" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://oc.services.debitsuccess.com/dswebservice/DSServices.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DSServices.xsd" MetadataType="Schema" ID="faef8410-af8b-4208-b172-e61559322f1c" SourceId="1" SourceUrl="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="DSServices1.xsd" MetadataType="Schema" ID="4890adc1-8e55-4d71-9c7b-e6058ecfc523" SourceId="1" SourceUrl="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="DSServices2.xsd" MetadataType="Schema" ID="ffdc2cda-f602-4a4a-a872-ec3af2bcd97f" SourceId="1" SourceUrl="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="DSServices3.xsd" MetadataType="Schema" ID="f63d9ae8-c64c-4e8d-bebe-a9ecfb6356ad" SourceId="1" SourceUrl="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="DSServices.wsdl" MetadataType="Wsdl" ID="64e0a5f6-f5e5-479f-a049-b8bd710775fa" SourceId="1" SourceUrl="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="DSServices4.xsd" MetadataType="Schema" ID="1cbad837-6801-4253-99a7-a0bfe28a935c" SourceId="1" SourceUrl="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd6" />
+    <MetadataFile FileName="DSServices5.xsd" MetadataType="Schema" ID="fb3ca9d0-c5fd-4a98-ba78-d1a49b8348a5" SourceId="1" SourceUrl="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd5" />
+    <MetadataFile FileName="DSServices6.xsd" MetadataType="Schema" ID="36633ec2-5d73-4479-ba6a-bc365db7e51c" SourceId="1" SourceUrl="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="DSServices1.wsdl" MetadataType="Wsdl" ID="d58c0a6f-5218-4c8d-a2fc-8d2af4995c32" SourceId="1" SourceUrl="https://oc.services.debitsuccess.com/dswebservice/DSServices.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

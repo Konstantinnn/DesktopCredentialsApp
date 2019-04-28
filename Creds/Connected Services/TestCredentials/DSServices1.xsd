@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="Debitsuccess.WebServices.WCF" elementFormDefault="qualified" targetNamespace="Debitsuccess.WebServices.WCF" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" />
+  <xs:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.RequestMessages" />
+  <xs:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.ResponseMessages" />
+  <xs:element name="CancelAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q1:RequestAccountCancellation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="CancelAccountResult" nillable="true" type="q2:ResponseAccountCancellation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTermsAndConditions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q3:RequestGetTermsAndConditions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTermsAndConditionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetTermsAndConditionsResult" nillable="true" type="q4:ResponseGetTermsAndConditions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCallsHistoryForDateRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q5:RequestRetrieveCallsForDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCallsHistoryForDateRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetCallsHistoryForDateRangeResult" nillable="true" type="q6:ResponseRetrieveCalls" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCallsHistoryByAccountId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q7:RequestRetrieveCallsByAccountID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCallsHistoryByAccountIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetCallsHistoryByAccountIdResult" nillable="true" type="q8:ResponseRetrieveCalls" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostCustomerAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q9:RequestPostCustomerAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostCustomerAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="PostCustomerAccountResult" nillable="true" type="q10:ResponsePostCustomerAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostCustomerAccountForExistingCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q11:RequestPostCustomerAccountForExistingCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostCustomerAccountForExistingCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="PostCustomerAccountForExistingCustomerResult" nillable="true" type="q12:ResponsePostCustomerAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerAccountByAccountId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q13:RequestRetrieveCustomerAccountByAccountID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerAccountByAccountIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetCustomerAccountByAccountIdResult" nillable="true" type="q14:ResponseRetrieveCustomerAccounts" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerAccountWithFeesByAccountId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q15:RequestRetrieveCustomerAccountWithFeesByAccountID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerAccountWithFeesByAccountIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetCustomerAccountWithFeesByAccountIdResult" nillable="true" type="q16:ResponseRetrieveCustomerAccountsWithFees" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerAccountForDateRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q17:RequestRetrieveCustomerAccountsForDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerAccountForDateRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetCustomerAccountForDateRangeResult" nillable="true" type="q18:ResponseRetrieveCustomerAccounts" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerAccountWithFeesForDateRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q19:RequestRetrieveCustomerAccountsWithFeesForDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerAccountWithFeesForDateRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetCustomerAccountWithFeesForDateRangeResult" nillable="true" type="q20:ResponseRetrieveCustomerAccountsWithFees" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSchedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q21:RequestNewPaySchedule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateScheduleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="CreateScheduleResult" nillable="true" type="q22:ResponseNewPaySchedule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustNextPaymentDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q23:RequestAdjustNextPaymentDate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustNextPaymentDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustNextPaymentDateResult" nillable="true" type="q24:ResponseAdjustNextPaymentDate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustDateDayOfPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q25:RequestAdjustDateOfPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustDateDayOfPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustDateDayOfPaymentResult" nillable="true" type="q26:ResponseAdjustDateOfPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountLastAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q27:RequestAdjustAccountLastAccess" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountLastAccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustAccountLastAccessResult" nillable="true" type="q28:ResponseAdjustAccountLastAccess" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountExternalAccountReferenceNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q29:RequestAdjustAccountExternalAccountReferenceNo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountExternalAccountReferenceNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustAccountExternalAccountReferenceNoResult" nillable="true" type="q30:ResponseAdjustAccountExternalAccountReferenceNo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountNextPaymentDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q31:RequestAdjustAccountNextPaymentDate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountNextPaymentDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustAccountNextPaymentDateResult" nillable="true" type="q32:ResponseAdjustAccountNextPaymentDate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountTotalValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q33:RequestAdjustAccountTotalValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountTotalValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustAccountTotalValueResult" nillable="true" type="q34:ResponseAdjustAccountTotalValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountMinimumTerm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q35:RequestAdjustAccountMinimumTerm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountMinimumTermResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustAccountMinimumTermResult" nillable="true" type="q36:ResponseAdjustAccountMinimumTerm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountStartDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q37:RequestAdjustAccountStartDate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountStartDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustAccountStartDateResult" nillable="true" type="q38:ResponseAdjustAccountStartDate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q39:RequestStopPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="StopPaymentResult" nillable="true" type="q40:ResponseStopPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PaymentCollected">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q41:RequestPaymentCollected" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PaymentCollectedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="PaymentCollectedResult" nillable="true" type="q42:ResponsePaymentCollected" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePaymentMethod">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q43:RequestChangePaymentMethod" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePaymentMethodResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="ChangePaymentMethodResult" nillable="true" type="q44:ResponseChangePaymentMethod" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitiateRefund">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q45:RequestInitiateRefund" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitiateRefundResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="InitiateRefundResult" nillable="true" type="q46:ResponseInitiateRefund" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPayMethodDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q47:RequestRetrievePayMethodDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPayMethodDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetPayMethodDetailsResult" nillable="true" type="q48:ResponseRetrievePayMethodDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustCatchUpPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q49:RequestAdjustCatchUpPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustCatchUpPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustCatchUpPaymentResult" nillable="true" type="q50:ResponseAdjustCatchUpPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuditHistoryForDateRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q51:RequestRetrieveAuditTrailForDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuditHistoryForDateRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetAuditHistoryForDateRangeResult" nillable="true" type="q52:ResponseRetrieveAuditTrail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuditHistoryByAccountId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q53:RequestRetrieveAuditTrailByAccountID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuditHistoryByAccountIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetAuditHistoryByAccountIdResult" nillable="true" type="q54:ResponseRetrieveAuditTrail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryForDateRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q55:RequestRetrievePaymentHistoryForDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryForDateRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetPaymentHistoryForDateRangeResult" nillable="true" type="q56:ResponseRetrievePaymentHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBPayTransactionsByDateRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q57:RequestRetrieveGetBPayTransactionsByDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBPayTransactionsByDateRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetBPayTransactionsByDateRangeResult" nillable="true" type="q58:ResponseRetrieveGetBPayTransactionsByDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryWithFeesForDateRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q59:RequestRetrievePaymentHistoryWithFeesForDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryWithFeesForDateRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetPaymentHistoryWithFeesForDateRangeResult" nillable="true" type="q60:ResponseRetrievePaymentHistoryWithFees" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryForDateRangeCW">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q61:RequestRetrievePaymentHistoryForDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryForDateRangeCWResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetPaymentHistoryForDateRangeCWResult" nillable="true" type="q62:ResponseRetrievePaymentHistoryCW" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryWithFeesForDateRangeCW">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q63:RequestRetrievePaymentHistoryWithFeesForDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryWithFeesForDateRangeCWResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetPaymentHistoryWithFeesForDateRangeCWResult" nillable="true" type="q64:ResponseRetrievePaymentHistoryWithFeesCW" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryByAccountId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q65:RequestRetrievePaymentHistoryByAccountID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryByAccountIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetPaymentHistoryByAccountIdResult" nillable="true" type="q66:ResponseRetrievePaymentHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryWithFeesByAccountId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q67:RequestRetrievePaymentHistoryWithFeesByAccountID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryWithFeesByAccountIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetPaymentHistoryWithFeesByAccountIdResult" nillable="true" type="q68:ResponseRetrievePaymentHistoryWithFees" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResumePayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q69:RequestResumePayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResumePaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="ResumePaymentResult" nillable="true" type="q70:ResponseResumePayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q71:RequestAdjustAccountClientAddress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="UpdateClientAddressResult" nillable="true" type="q72:ResponseAdjustAccountClientAddress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientAddressCW">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q73:RequestAdjustAccountClientAddress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientAddressCWResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="UpdateClientAddressCWResult" nillable="true" type="q74:ResponseAdjustAccountClientAddress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q75:RequestAdjustAccountClientDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="UpdateClientDetailsResult" nillable="true" type="q76:ResponseAdjustAccountClientDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGuarantorDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q77:RequestAdjustGuarantorDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGuarantorDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="UpdateGuarantorDetailsResult" nillable="true" type="q78:ResponseAdjustGuarantorDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientEmailAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q79:RequestAdjustAccountClientEmail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientEmailAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="UpdateClientEmailAddressResult" nillable="true" type="q80:ResponseAdjustAccountClientEmail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientEmailAddressCW">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q81:RequestAdjustAccountClientEmail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientEmailAddressCWResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="UpdateClientEmailAddressCWResult" nillable="true" type="q82:ResponseAdjustAccountClientEmail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientPhoneNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q83:RequestAdjustAccountClientPhone" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientPhoneNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="UpdateClientPhoneNumberResult" nillable="true" type="q84:ResponseAdjustAccountClientPhone" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientPhoneNumberCW">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q85:RequestAdjustAccountClientPhone" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientPhoneNumberCWResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="UpdateClientPhoneNumberCWResult" nillable="true" type="q86:ResponseAdjustAccountClientPhone" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePaySchedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q87:RequestDeletePaySchedule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePayScheduleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="DeletePayScheduleResult" nillable="true" type="q88:ResponseDeletePaySchedule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustPaySchedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q89:RequestAdjustPaySchedule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustPayScheduleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustPayScheduleResult" nillable="true" type="q90:ResponseAdjustPaySchedule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustSuspensionEndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q91:RequestAdjustSuspensionEndDate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustSuspensionEndDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustSuspensionEndDateResult" nillable="true" type="q92:ResponseAdjustSuspensionEndDate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SuspendAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q93:RequestSuspendAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SuspendAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="SuspendAccountResult" nillable="true" type="q94:ResponseSuspendAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SuspendAccountBetweenDates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q95:RequestSuspendAccountBetweenDates" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SuspendAccountBetweenDatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="SuspendAccountBetweenDatesResult" nillable="true" type="q96:ResponseSuspendAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SuspendAccountForNumberOfPaymentCycles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q97:RequestSuspendAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SuspendAccountForNumberOfPaymentCyclesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="SuspendAccountForNumberOfPaymentCyclesResult" nillable="true" type="q98:ResponseSuspendAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountAppendNotes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.RequestMessages" minOccurs="0" name="request" nillable="true" type="q99:RequestAdjustAccountAppendNotes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountAppendNotesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustAccountAppendNotesResult" nillable="true" type="q100:ResponseAdjustAccountAppendNotes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustPaymentInAdvance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q101:RequestAdjustPaymentInAdvance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustPaymentInAdvanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustPaymentInAdvanceResult" nillable="true" type="q102:ResponseAdjustPaymentInAdvance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountPaymentMethod">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q103:RequestAdjustAccountPaymentMethod" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountPaymentMethodResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustAccountPaymentMethodResult" nillable="true" type="q104:ResponseAdjustAccountPaymentMethod" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountFixedTerm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q105:RequestAdjustAccountFixedTerm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountFixedTermResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustAccountFixedTermResult" nillable="true" type="q106:ResponseAdjustAccountFixedTerm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountFixedTermAF">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q107:RequestAdjustAccountFixedTermAF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountFixedTermAFResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustAccountFixedTermAFResult" nillable="true" type="q108:ResponseAdjustAccountFixedTerm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCardPaymentForCustomerAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q109:RequestProcessCardPaymentForCustomerAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCardPaymentForCustomerAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="ProcessCardPaymentForCustomerAccountResult" nillable="true" type="q110:ResponseProcessCardPaymentForCustomerAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessOneOffCardPaymentForCustomerAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q111:RequestProcessCardPaymentForCustomerAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessOneOffCardPaymentForCustomerAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="ProcessOneOffCardPaymentForCustomerAccountResult" nillable="true" type="q112:ResponseProcessCardPaymentForCustomerAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessRealTimeCardPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q113:RequestProcessRealTimeCardPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessRealTimeCardPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="ProcessRealTimeCardPaymentResult" nillable="true" type="q114:ResponseProcessRealTimeCardPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCardPaymentStatusForCustomerAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q115:RequestGetCardPaymentStatusForCustomerAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCardPaymentStatusForCustomerAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetCardPaymentStatusForCustomerAccountResult" nillable="true" type="q116:ResponseProcessCardPaymentForCustomerAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacilityAccountConfiguration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q117:RequestGetFacilityAccountConfiguration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacilityAccountConfigurationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetFacilityAccountConfigurationResult" nillable="true" type="q118:ResponseGetFacilityAccountConfiguration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOverdueStatusHistoryForDateRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.RequestMessages" minOccurs="0" name="request" nillable="true" type="q119:RequestRetrieveOverdueStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOverdueStatusHistoryForDateRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.ResponseMessages" minOccurs="0" name="GetOverdueStatusHistoryForDateRangeResult" nillable="true" type="q120:ResponseRetrieveOverdueStatusHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.RequestMessages" minOccurs="0" name="request" nillable="true" type="q121:RequestGetPaymentToken" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.ResponseMessages" minOccurs="0" name="GetPaymentTokenResult" nillable="true" type="q122:ResponseGetPaymentToken" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCasualPaymentToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.RequestMessages" minOccurs="0" name="request" nillable="true" type="q123:RequestGetCasualPaymentToken" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCasualPaymentTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.ResponseMessages" minOccurs="0" name="GetCasualPaymentTokenResult" nillable="true" type="q124:ResponseGetCasualPaymentToken" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCasualPaymentsForDateRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.RequestMessages" minOccurs="0" name="request" nillable="true" type="q125:RequestGetCasualPaymentsForDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCasualPaymentsForDateRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.ResponseMessages" minOccurs="0" name="GetCasualPaymentsForDateRangeResult" nillable="true" type="q126:ResponseGetCasualPaymentsForDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCasualPaymentsByPaymentRef">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.RequestMessages" minOccurs="0" name="request" nillable="true" type="q127:RequestGetCasualPaymentsByPaymentRef" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCasualPaymentsByPaymentRefResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.ResponseMessages" minOccurs="0" name="GetCasualPaymentsByPaymentRefResult" nillable="true" type="q128:ResponseGetCasualPaymentsByPaymentRef" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePenaltyFeeSchedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q129:RequestDeletePaySchedule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePenaltyFeeScheduleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="DeletePenaltyFeeScheduleResult" nillable="true" type="q130:ResponseDeletePaySchedule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMonthlyCollections">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q131:RequestGetMonthlyCollections" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMonthlyCollectionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetMonthlyCollectionsResult" nillable="true" type="q132:ResponseGetMonthlyCollections" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActiveAccounts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.RequestMessages" minOccurs="0" name="request" nillable="true" type="q133:RequestGetActiveAccounts" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActiveAccountsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.ResponseMessages" minOccurs="0" name="GetActiveAccountsResult" nillable="true" type="q134:ResponseGetActiveAccounts" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferCustomerAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.RequestMessages" minOccurs="0" name="request" nillable="true" type="q135:RequestTransferCustomerAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferCustomerAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.ResponseMessages" minOccurs="0" name="TransferCustomerAccountResult" nillable="true" type="q136:ResponseTransferCustomerAccount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryByStatusForDateRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.RequestMessages" minOccurs="0" name="request" nillable="true" type="q137:RequestGetPaymentHistoryByStatusForDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryByStatusForDateRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.ResponseMessages" minOccurs="0" name="GetPaymentHistoryByStatusForDateRangeResult" nillable="true" type="q138:ResponseGetPaymentHistoryByStatusForDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryStatusByAccountId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.RequestMessages" minOccurs="0" name="request" nillable="true" type="q139:RequestGetPaymentHistoryStatusByAccountId" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentHistoryStatusByAccountIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.ResponseMessages" minOccurs="0" name="GetPaymentHistoryStatusByAccountIdResult" nillable="true" type="q140:ResponseGetPaymentHistoryStatusByAccountId" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountTerminationDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.RequestMessages" minOccurs="0" name="request" nillable="true" type="q141:RequestAdjustAccountTerminationDate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustAccountTerminationDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="AdjustAccountTerminationDateResult" nillable="true" type="q142:ResponseAdjustAccountTerminationDate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClosedAccountsForDateRange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="request" nillable="true" type="q143:RequestGetClosedAccountsForDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClosedAccountsForDateRangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" minOccurs="0" name="GetClosedAccountsForDateRangeResult" nillable="true" type="q144:ResponseGetClosedAccountsForDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

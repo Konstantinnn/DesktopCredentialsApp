@@ -1,0 +1,1372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="Debitsuccess.WebServices.WCF" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DSServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_DSServices_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_DSServices_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="Debitsuccess.WebServices.WCF" location="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="BasicHttpBinding_DSServices" type="i0:DSServices">
+    <wsp:PolicyReference URI="#BasicHttpBinding_DSServices_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CancelAccount">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/CancelAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTermsAndConditions">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetTermsAndConditions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallsHistoryForDateRange">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCallsHistoryForDateRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallsHistoryByAccountId">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCallsHistoryByAccountId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostCustomerAccount">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/PostCustomerAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostCustomerAccountForExistingCustomer">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/PostCustomerAccountForExistingCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAccountByAccountId">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountByAccountId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAccountWithFeesByAccountId">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountWithFeesByAccountId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAccountForDateRange">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountForDateRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAccountWithFeesForDateRange">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountWithFeesForDateRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSchedule">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/CreateSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustNextPaymentDate">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustNextPaymentDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustDateDayOfPayment">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustDateDayOfPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountLastAccess">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountLastAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountExternalAccountReferenceNo">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountExternalAccountReferenceNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountNextPaymentDate">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountNextPaymentDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountTotalValue">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountTotalValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountMinimumTerm">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountMinimumTerm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountStartDate">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountStartDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopPayment">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/StopPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentCollected">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/PaymentCollected" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePaymentMethod">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/ChangePaymentMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitiateRefund">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/InitiateRefund" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayMethodDetails">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPayMethodDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustCatchUpPayment">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustCatchUpPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditHistoryForDateRange">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetAuditHistoryForDateRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditHistoryByAccountId">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetAuditHistoryByAccountId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryForDateRange">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryForDateRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBPayTransactionsByDateRange">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetBPayTransactionsByDateRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryWithFeesForDateRange">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryWithFeesForDateRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryForDateRangeCW">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryForDateRangeCW" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryWithFeesForDateRangeCW">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryWithFeesForDateRangeCW" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryByAccountId">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryByAccountId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryWithFeesByAccountId">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryWithFeesByAccountId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResumePayment">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/ResumePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientAddress">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateClientAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientAddressCW">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateClientAddressCW" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientDetails">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateClientDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGuarantorDetails">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateGuarantorDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientEmailAddress">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateClientEmailAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientEmailAddressCW">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateClientEmailAddressCW" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientPhoneNumber">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateClientPhoneNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientPhoneNumberCW">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateClientPhoneNumberCW" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePaySchedule">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/DeletePaySchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustPaySchedule">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustPaySchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustSuspensionEndDate">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustSuspensionEndDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendAccount">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/SuspendAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendAccountBetweenDates">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/SuspendAccountBetweenDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendAccountForNumberOfPaymentCycles">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/SuspendAccountForNumberOfPaymentCycles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountAppendNotes">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountAppendNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustPaymentInAdvance">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustPaymentInAdvance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountPaymentMethod">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountPaymentMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountFixedTerm">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountFixedTerm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountFixedTermAF">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountFixedTermAF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCardPaymentForCustomerAccount">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/ProcessCardPaymentForCustomerAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessOneOffCardPaymentForCustomerAccount">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/ProcessOneOffCardPaymentForCustomerAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessRealTimeCardPayment">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/ProcessRealTimeCardPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardPaymentStatusForCustomerAccount">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCardPaymentStatusForCustomerAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacilityAccountConfiguration">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetFacilityAccountConfiguration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOverdueStatusHistoryForDateRange">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetOverdueStatusHistoryForDateRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentToken">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualPaymentToken">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCasualPaymentToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualPaymentsForDateRange">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCasualPaymentsForDateRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualPaymentsByPaymentRef">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCasualPaymentsByPaymentRef" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePenaltyFeeSchedule">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/DeletePenaltyFeeSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCollections">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetMonthlyCollections" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveAccounts">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetActiveAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferCustomerAccount">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/TransferCustomerAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryByStatusForDateRange">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryByStatusForDateRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryStatusByAccountId">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryStatusByAccountId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountTerminationDate">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountTerminationDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClosedAccountsForDateRange">
+      <soap:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetClosedAccountsForDateRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSHttpBinding_DSServices" type="i0:DSServices">
+    <wsp:PolicyReference URI="#WSHttpBinding_DSServices_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CancelAccount">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/CancelAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTermsAndConditions">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetTermsAndConditions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallsHistoryForDateRange">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCallsHistoryForDateRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCallsHistoryByAccountId">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCallsHistoryByAccountId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostCustomerAccount">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/PostCustomerAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostCustomerAccountForExistingCustomer">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/PostCustomerAccountForExistingCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAccountByAccountId">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountByAccountId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAccountWithFeesByAccountId">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountWithFeesByAccountId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAccountForDateRange">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountForDateRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerAccountWithFeesForDateRange">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCustomerAccountWithFeesForDateRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSchedule">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/CreateSchedule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustNextPaymentDate">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustNextPaymentDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustDateDayOfPayment">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustDateDayOfPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountLastAccess">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountLastAccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountExternalAccountReferenceNo">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountExternalAccountReferenceNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountNextPaymentDate">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountNextPaymentDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountTotalValue">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountTotalValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountMinimumTerm">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountMinimumTerm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountStartDate">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountStartDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopPayment">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/StopPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentCollected">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/PaymentCollected" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePaymentMethod">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/ChangePaymentMethod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitiateRefund">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/InitiateRefund" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayMethodDetails">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPayMethodDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustCatchUpPayment">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustCatchUpPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditHistoryForDateRange">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetAuditHistoryForDateRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditHistoryByAccountId">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetAuditHistoryByAccountId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryForDateRange">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryForDateRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBPayTransactionsByDateRange">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetBPayTransactionsByDateRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryWithFeesForDateRange">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryWithFeesForDateRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryForDateRangeCW">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryForDateRangeCW" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryWithFeesForDateRangeCW">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryWithFeesForDateRangeCW" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryByAccountId">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryByAccountId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryWithFeesByAccountId">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryWithFeesByAccountId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResumePayment">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/ResumePayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientAddress">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateClientAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientAddressCW">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateClientAddressCW" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientDetails">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateClientDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGuarantorDetails">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateGuarantorDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientEmailAddress">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateClientEmailAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientEmailAddressCW">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateClientEmailAddressCW" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientPhoneNumber">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateClientPhoneNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientPhoneNumberCW">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/UpdateClientPhoneNumberCW" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePaySchedule">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/DeletePaySchedule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustPaySchedule">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustPaySchedule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustSuspensionEndDate">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustSuspensionEndDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendAccount">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/SuspendAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendAccountBetweenDates">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/SuspendAccountBetweenDates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendAccountForNumberOfPaymentCycles">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/SuspendAccountForNumberOfPaymentCycles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountAppendNotes">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountAppendNotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustPaymentInAdvance">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustPaymentInAdvance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountPaymentMethod">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountPaymentMethod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountFixedTerm">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountFixedTerm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountFixedTermAF">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountFixedTermAF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCardPaymentForCustomerAccount">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/ProcessCardPaymentForCustomerAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessOneOffCardPaymentForCustomerAccount">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/ProcessOneOffCardPaymentForCustomerAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessRealTimeCardPayment">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/ProcessRealTimeCardPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardPaymentStatusForCustomerAccount">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCardPaymentStatusForCustomerAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacilityAccountConfiguration">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetFacilityAccountConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOverdueStatusHistoryForDateRange">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetOverdueStatusHistoryForDateRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentToken">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualPaymentToken">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCasualPaymentToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualPaymentsForDateRange">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCasualPaymentsForDateRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCasualPaymentsByPaymentRef">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetCasualPaymentsByPaymentRef" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePenaltyFeeSchedule">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/DeletePenaltyFeeSchedule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMonthlyCollections">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetMonthlyCollections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveAccounts">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetActiveAccounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferCustomerAccount">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/TransferCustomerAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryByStatusForDateRange">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryByStatusForDateRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistoryStatusByAccountId">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetPaymentHistoryStatusByAccountId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdjustAccountTerminationDate">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/AdjustAccountTerminationDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClosedAccountsForDateRange">
+      <soap12:operation soapAction="Debitsuccess.WebServices.WCF/DSServices/GetClosedAccountsForDateRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DSServices">
+    <wsdl:port name="BasicHttpBinding_DSServices" binding="tns:BasicHttpBinding_DSServices">
+      <soap:address location="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc/basic" />
+    </wsdl:port>
+    <wsdl:port name="WSHttpBinding_DSServices" binding="tns:WSHttpBinding_DSServices">
+      <soap12:address location="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc/ws" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://oc.services.debitsuccess.com/DSWebService/DSServices.svc/ws</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

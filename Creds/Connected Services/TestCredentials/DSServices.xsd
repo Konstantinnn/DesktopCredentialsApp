@@ -1,0 +1,1687 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" />
+  <xs:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.Entities" />
+  <xs:complexType name="RequestAccountCancellation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CancellationNote" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAccountCancellation" nillable="true" type="tns:RequestAccountCancellation" />
+  <xs:complexType name="RequestMessageByAccountIdBase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalAccountReferenceNo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestMessageByAccountIdBase" nillable="true" type="tns:RequestMessageByAccountIdBase" />
+  <xs:complexType name="RequestMessageBase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RequestInitiator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestMessageBase" nillable="true" type="tns:RequestMessageBase" />
+  <xs:complexType name="MessageBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageBase" nillable="true" type="tns:MessageBase" />
+  <xs:complexType name="User">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="EntityBaseClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntityBaseClass" nillable="true" type="tns:EntityBaseClass" />
+  <xs:complexType name="ResponseAccountCancellation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAccountCancellation" nillable="true" type="tns:ResponseAccountCancellation" />
+  <xs:complexType name="ResponseMessageBase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResponseNotes" nillable="true" type="tns:ArrayOfResponseMessageNote" />
+          <xs:element minOccurs="0" name="Status" type="tns:MessageStatus" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseMessageBase" nillable="true" type="tns:ResponseMessageBase" />
+  <xs:complexType name="ArrayOfResponseMessageNote">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResponseMessageNote" nillable="true" type="tns:ResponseMessageNote" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResponseMessageNote" nillable="true" type="tns:ArrayOfResponseMessageNote" />
+  <xs:complexType name="ResponseMessageNote">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoteType" type="tns:ResponseMessageNoteType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseMessageNote" nillable="true" type="tns:ResponseMessageNote" />
+  <xs:simpleType name="ResponseMessageNoteType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="Warning" />
+      <xs:enumeration value="Info" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ResponseMessageNoteType" nillable="true" type="tns:ResponseMessageNoteType" />
+  <xs:simpleType name="MessageStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Failed" />
+      <xs:enumeration value="Succeed" />
+      <xs:enumeration value="Inprogress" />
+      <xs:enumeration value="Complete" />
+      <xs:enumeration value="Unknown" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MessageStatus" nillable="true" type="tns:MessageStatus" />
+  <xs:complexType name="RequestGetTermsAndConditions">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageFacilityBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestGetTermsAndConditions" nillable="true" type="tns:RequestGetTermsAndConditions" />
+  <xs:complexType name="RequestMessageFacilityBase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContractPrefix" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestMessageFacilityBase" nillable="true" type="tns:RequestMessageFacilityBase" />
+  <xs:complexType name="ResponseGetTermsAndConditions">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TermsAndConditions" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseGetTermsAndConditions" nillable="true" type="tns:ResponseGetTermsAndConditions" />
+  <xs:complexType name="RequestRetrieveCallsForDateRange">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestRetrieveCallsForDateRange" nillable="true" type="tns:RequestRetrieveCallsForDateRange" />
+  <xs:complexType name="ResponseRetrieveCalls">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageAccountBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CallNotes" nillable="true" type="tns:ArrayOfCallNote" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseRetrieveCalls" nillable="true" type="tns:ResponseRetrieveCalls" />
+  <xs:complexType name="ResponseMessageAccountBase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalAccountReferenceNo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseMessageAccountBase" nillable="true" type="tns:ResponseMessageAccountBase" />
+  <xs:complexType name="ArrayOfCallNote">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CallNote" nillable="true" type="tns:CallNote" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCallNote" nillable="true" type="tns:ArrayOfCallNote" />
+  <xs:complexType name="CallNote">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CommunicationChannel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateCallMade" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExternalAccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Purpose" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CallNote" nillable="true" type="tns:CallNote" />
+  <xs:complexType name="RequestRetrieveCallsByAccountID">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestRetrieveCallsByAccountID" nillable="true" type="tns:RequestRetrieveCallsByAccountID" />
+  <xs:complexType name="RequestPostCustomerAccount">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountCode" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="AccountCountry" type="q1:Country" />
+          <xs:element minOccurs="0" name="AccountHolder" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountNotes" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="AccountType" type="q2:AccountType" />
+          <xs:element minOccurs="0" name="BillingAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BillingCity" nillable="true" type="xs:string" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="BillingCountry" type="q3:Country" />
+          <xs:element minOccurs="0" name="BillingLocality" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BillingPostcode" nillable="true" type="xs:string" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="BillingState" nillable="true" type="q4:AUSStates" />
+          <xs:element minOccurs="0" name="BillingSuburb" nillable="true" type="xs:string" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="BusinessCountryCode" type="q5:PhoneCountryCode" />
+          <xs:element minOccurs="0" name="BusinessNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BusinessSTD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContractPrefix" nillable="true" type="xs:string" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="CreditCardType" type="q6:CreditCardType" />
+          <xs:element minOccurs="0" name="DateAccountStarted" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="EmergencyCountryCode" type="q7:PhoneCountryCode" />
+          <xs:element minOccurs="0" name="EmergencyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmergencyNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmergencySTD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExpiryDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExternalAccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FixTotalValue" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FixedTerm" type="xs:boolean" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="Gender" type="q8:Gender" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="HomeCountryCode" type="q9:PhoneCountryCode" />
+          <xs:element minOccurs="0" name="HomeNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HomeSTD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InitialOneOffScheduleDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InitialOneOffScheduleInstalment" type="xs:decimal" />
+          <xs:element minOccurs="0" name="InitialOneOffScheduleStartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="MobileCountryCode" type="q10:PhoneCountryCode" />
+          <xs:element minOccurs="0" name="MobileNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MobileSTD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhysicalAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhysicalCity" nillable="true" type="xs:string" />
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PhysicalCountry" type="q11:Country" />
+          <xs:element minOccurs="0" name="PhysicalLocality" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhysicalPostcode" nillable="true" type="xs:string" />
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PhysicalState" nillable="true" type="q12:AUSStates" />
+          <xs:element minOccurs="0" name="PhysicalSuburb" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecurringScheduleDescription" nillable="true" type="xs:string" />
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="RecurringScheduleFrequency" type="q13:Frequency" />
+          <xs:element minOccurs="0" name="RecurringScheduleInstalment" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RecurringScheduleStartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Term" type="xs:int" />
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="TermType" type="q14:TermType" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalValue" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="WaiveEstFee" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="InitialScheduleExternalIdentifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecurringScheduleExternalIdentifier" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestPostCustomerAccount" nillable="true" type="tns:RequestPostCustomerAccount" />
+  <xs:complexType name="ResponsePostCustomerAccount">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageAccountBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponsePostCustomerAccount" nillable="true" type="tns:ResponsePostCustomerAccount" />
+  <xs:complexType name="RequestPostCustomerAccountForExistingCustomer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountNotes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContractPrefix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateAccountStarted" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FixTotalValue" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FixedTerm" type="xs:boolean" />
+          <xs:element minOccurs="0" name="InitialOneOffScheduleDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InitialOneOffScheduleInstalment" type="xs:decimal" />
+          <xs:element minOccurs="0" name="InitialOneOffScheduleStartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="NewExternalAccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecurringScheduleDescription" nillable="true" type="xs:string" />
+          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="RecurringScheduleFrequency" type="q15:Frequency" />
+          <xs:element minOccurs="0" name="RecurringScheduleInstalment" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RecurringScheduleStartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Term" type="xs:int" />
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="TermType" type="q16:TermType" />
+          <xs:element minOccurs="0" name="TotalValue" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="WaiveEstFee" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="InitialScheduleExternalIdentifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecurringScheduleExternalIdentifier" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestPostCustomerAccountForExistingCustomer" nillable="true" type="tns:RequestPostCustomerAccountForExistingCustomer" />
+  <xs:complexType name="RequestRetrieveCustomerAccountByAccountID">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestRetrieveCustomerAccountByAccountID" nillable="true" type="tns:RequestRetrieveCustomerAccountByAccountID" />
+  <xs:complexType name="ResponseRetrieveCustomerAccounts">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Accounts" nillable="true" type="tns:ArrayOfAccount" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseRetrieveCustomerAccounts" nillable="true" type="tns:ResponseRetrieveCustomerAccounts" />
+  <xs:complexType name="ArrayOfAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Account" nillable="true" type="tns:Account" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccount" nillable="true" type="tns:ArrayOfAccount" />
+  <xs:complexType name="Account">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountNotes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountTemplate" nillable="true" type="ser:guid" />
+          <xs:element minOccurs="0" name="CancelReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CatchUpAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CatchUpEndDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ContractPrefix" nillable="true" type="xs:string" />
+          <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="CurrentFrequency" type="q17:Frequency" />
+          <xs:element minOccurs="0" name="CurrentInstalment" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:Customer" />
+          <xs:element minOccurs="0" name="DateAccountClosed" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateAccountLoaded" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateAccountStarted" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExternalAccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FixedTerm" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastBillingDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastReversalReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastUpdatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MinTermTotalValue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NextBillingDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OneOffSchedules" nillable="true" type="tns:ArrayOfOneOffSchedule" />
+          <xs:element minOccurs="0" name="OutstandingBalance" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OutstandingBalanceWithoutFees" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OverdueAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OverdueAmountWithoutFees" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OverdueStatus" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PaymentInAdvanceAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PaymentInAdvanceEndDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PaymentStopEndDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PaymentsStopped" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Paymethod" nillable="true" type="tns:Paymethod" />
+          <xs:element minOccurs="0" name="ProjectedFinishDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="RecurringSchedules" nillable="true" type="tns:ArrayOfPaySchedule" />
+          <xs:element minOccurs="0" name="Suspended" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SuspensionEndDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SuspensionSchedules" nillable="true" type="tns:ArrayOfPaySchedule" />
+          <xs:element minOccurs="0" name="Term" type="xs:int" />
+          <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="TermType" type="q18:TermType" />
+          <xs:element minOccurs="0" name="CurrentBalance" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CurrentBalanceWithoutFees" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Account" nillable="true" type="tns:Account" />
+  <xs:complexType name="Customer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Contacts" nillable="true" type="tns:ContactDetails" />
+          <xs:element minOccurs="0" name="CustomerDetail" nillable="true" type="tns:CustomerDetail" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:complexType name="ContactDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Addresses" nillable="true" type="tns:ArrayOfAddress" />
+          <xs:element minOccurs="0" name="Emails" nillable="true" type="tns:ArrayOfEmail" />
+          <xs:element minOccurs="0" name="Phones" nillable="true" type="tns:ArrayOfPhone" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ContactDetails" nillable="true" type="tns:ContactDetails" />
+  <xs:complexType name="ArrayOfAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:Address" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAddress" nillable="true" type="tns:ArrayOfAddress" />
+  <xs:complexType name="Address">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ContactBase">
+        <xs:sequence>
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="AddressType" type="q19:AddressType" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="Country" type="q20:Country" />
+          <xs:element minOccurs="0" name="Locality" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Postcode" nillable="true" type="xs:string" />
+          <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="State" nillable="true" type="q21:AUSStates" />
+          <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Suburb" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:complexType name="ContactBase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Preferred" nillable="true" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ContactBase" nillable="true" type="tns:ContactBase" />
+  <xs:complexType name="ArrayOfEmail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Email" nillable="true" type="tns:Email" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmail" nillable="true" type="tns:ArrayOfEmail" />
+  <xs:complexType name="Email">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ContactBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Email" nillable="true" type="tns:Email" />
+  <xs:complexType name="ArrayOfPhone">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Phone" nillable="true" type="tns:Phone" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhone" nillable="true" type="tns:ArrayOfPhone" />
+  <xs:complexType name="Phone">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ContactBase">
+        <xs:sequence>
+          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="CountryCode" type="q22:PhoneCountryCode" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+          <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PhoneNumberType" type="q23:PhoneType" />
+          <xs:element minOccurs="0" name="StdCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Phone" nillable="true" type="tns:Phone" />
+  <xs:complexType name="CustomerDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateOfBirth" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="Gender" type="q24:Gender" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomerDetail" nillable="true" type="tns:CustomerDetail" />
+  <xs:complexType name="ArrayOfOneOffSchedule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OneOffSchedule" nillable="true" type="tns:OneOffSchedule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOneOffSchedule" nillable="true" type="tns:ArrayOfOneOffSchedule" />
+  <xs:complexType name="OneOffSchedule">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ScheduleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="InRetry" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OneOffSchedule" nillable="true" type="tns:OneOffSchedule" />
+  <xs:complexType name="ScheduleBase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Installment" type="xs:decimal" />
+          <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentFrequency" type="q25:Frequency" />
+          <xs:element minOccurs="0" name="ScheduleId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ScheduleBase" nillable="true" type="tns:ScheduleBase" />
+  <xs:complexType name="Paymethod">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountHolder" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountNo" nillable="true" type="xs:string" />
+          <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="AccountType" type="q26:AccountType" />
+          <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="CreditCardType" type="q27:CreditCardType" />
+          <xs:element minOccurs="0" name="ExpiryDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Paymethod" nillable="true" type="tns:Paymethod" />
+  <xs:complexType name="ArrayOfPaySchedule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaySchedule" nillable="true" type="tns:PaySchedule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaySchedule" nillable="true" type="tns:ArrayOfPaySchedule" />
+  <xs:complexType name="PaySchedule">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ScheduleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PaySchedule" nillable="true" type="tns:PaySchedule" />
+  <xs:complexType name="RequestRetrieveCustomerAccountWithFeesByAccountID">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestRetrieveCustomerAccountWithFeesByAccountID" nillable="true" type="tns:RequestRetrieveCustomerAccountWithFeesByAccountID" />
+  <xs:complexType name="ResponseRetrieveCustomerAccountsWithFees">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Accounts" nillable="true" type="tns:ArrayOfAccountWithFees" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseRetrieveCustomerAccountsWithFees" nillable="true" type="tns:ResponseRetrieveCustomerAccountsWithFees" />
+  <xs:complexType name="ArrayOfAccountWithFees">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccountWithFees" nillable="true" type="tns:AccountWithFees" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccountWithFees" nillable="true" type="tns:ArrayOfAccountWithFees" />
+  <xs:complexType name="AccountWithFees">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Account">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DSFeeSchedules" nillable="true" type="tns:ArrayOfOneOffScheduleDetailed" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AccountWithFees" nillable="true" type="tns:AccountWithFees" />
+  <xs:complexType name="ArrayOfOneOffScheduleDetailed">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OneOffScheduleDetailed" nillable="true" type="tns:OneOffScheduleDetailed" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOneOffScheduleDetailed" nillable="true" type="tns:ArrayOfOneOffScheduleDetailed" />
+  <xs:complexType name="OneOffScheduleDetailed">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OneOffSchedule">
+        <xs:sequence>
+          <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentCode" type="q28:PaymentCode" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OneOffScheduleDetailed" nillable="true" type="tns:OneOffScheduleDetailed" />
+  <xs:complexType name="RequestRetrieveCustomerAccountsForDateRange">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestRetrieveCustomerAccountsForDateRange" nillable="true" type="tns:RequestRetrieveCustomerAccountsForDateRange" />
+  <xs:complexType name="RequestRetrieveCustomerAccountsWithFeesForDateRange">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestRetrieveCustomerAccountsWithFeesForDateRange" nillable="true" type="tns:RequestRetrieveCustomerAccountsWithFeesForDateRange" />
+  <xs:complexType name="RequestNewPaySchedule">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdjustFutureSchedules" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DeleteFutureSchedules" type="xs:boolean" />
+          <xs:element minOccurs="0" name="NewPaySchedule" nillable="true" type="tns:RequestPaySchedule" />
+          <xs:element minOccurs="0" name="OverrideBillingCycleAlignment" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PreviousScheduleEndDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestNewPaySchedule" nillable="true" type="tns:RequestNewPaySchedule" />
+  <xs:complexType name="RequestPaySchedule">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ScheduleBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MinimumEffectiveDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExternalScheduleIdentifier" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestPaySchedule" nillable="true" type="tns:RequestPaySchedule" />
+  <xs:complexType name="ResponseNewPaySchedule">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewScheduleId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseNewPaySchedule" nillable="true" type="tns:ResponseNewPaySchedule" />
+  <xs:complexType name="RequestAdjustNextPaymentDate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewNextPaymentDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustNextPaymentDate" nillable="true" type="tns:RequestAdjustNextPaymentDate" />
+  <xs:complexType name="ResponseAdjustNextPaymentDate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustNextPaymentDate" nillable="true" type="tns:ResponseAdjustNextPaymentDate" />
+  <xs:complexType name="RequestAdjustDateOfPayment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewPaymentDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustDateOfPayment" nillable="true" type="tns:RequestAdjustDateOfPayment" />
+  <xs:complexType name="ResponseAdjustDateOfPayment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustDateOfPayment" nillable="true" type="tns:ResponseAdjustDateOfPayment" />
+  <xs:complexType name="RequestAdjustAccountLastAccess">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LastAccess" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustAccountLastAccess" nillable="true" type="tns:RequestAdjustAccountLastAccess" />
+  <xs:complexType name="ResponseAdjustAccountLastAccess">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustAccountLastAccess" nillable="true" type="tns:ResponseAdjustAccountLastAccess" />
+  <xs:complexType name="RequestAdjustAccountExternalAccountReferenceNo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewExternalAccountReferenceNo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustAccountExternalAccountReferenceNo" nillable="true" type="tns:RequestAdjustAccountExternalAccountReferenceNo" />
+  <xs:complexType name="ResponseAdjustAccountExternalAccountReferenceNo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustAccountExternalAccountReferenceNo" nillable="true" type="tns:ResponseAdjustAccountExternalAccountReferenceNo" />
+  <xs:complexType name="RequestAdjustAccountNextPaymentDate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NextPaymentDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustAccountNextPaymentDate" nillable="true" type="tns:RequestAdjustAccountNextPaymentDate" />
+  <xs:complexType name="ResponseAdjustAccountNextPaymentDate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustAccountNextPaymentDate" nillable="true" type="tns:ResponseAdjustAccountNextPaymentDate" />
+  <xs:complexType name="RequestAdjustAccountTotalValue">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CurrentTotalValue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NewTotalValue" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustAccountTotalValue" nillable="true" type="tns:RequestAdjustAccountTotalValue" />
+  <xs:complexType name="ResponseAdjustAccountTotalValue">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustAccountTotalValue" nillable="true" type="tns:ResponseAdjustAccountTotalValue" />
+  <xs:complexType name="RequestAdjustAccountMinimumTerm">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewTerm" nillable="true" type="xs:int" />
+          <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="NewTermType" nillable="true" type="q29:TermType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustAccountMinimumTerm" nillable="true" type="tns:RequestAdjustAccountMinimumTerm" />
+  <xs:complexType name="ResponseAdjustAccountMinimumTerm">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageAccountBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewTotalValue" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustAccountMinimumTerm" nillable="true" type="tns:ResponseAdjustAccountMinimumTerm" />
+  <xs:complexType name="RequestAdjustAccountStartDate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewStartDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustAccountStartDate" nillable="true" type="tns:RequestAdjustAccountStartDate" />
+  <xs:complexType name="ResponseAdjustAccountStartDate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustAccountStartDate" nillable="true" type="tns:ResponseAdjustAccountStartDate" />
+  <xs:complexType name="RequestStopPayment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="StopCreditControlLetters" type="xs:boolean" />
+          <xs:element minOccurs="0" name="StopPaymentsUntil" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestStopPayment" nillable="true" type="tns:RequestStopPayment" />
+  <xs:complexType name="ResponseStopPayment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseStopPayment" nillable="true" type="tns:ResponseStopPayment" />
+  <xs:complexType name="RequestPaymentCollected">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DateOfPayment" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalTransactionIdentifier" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestPaymentCollected" nillable="true" type="tns:RequestPaymentCollected" />
+  <xs:complexType name="ResponsePaymentCollected">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponsePaymentCollected" nillable="true" type="tns:ResponsePaymentCollected" />
+  <xs:complexType name="RequestChangePaymentMethod">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewPaymethod" nillable="true" type="tns:Paymethod" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestChangePaymentMethod" nillable="true" type="tns:RequestChangePaymentMethod" />
+  <xs:complexType name="ResponseChangePaymentMethod">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseChangePaymentMethod" nillable="true" type="tns:ResponseChangePaymentMethod" />
+  <xs:complexType name="RequestInitiateRefund">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestInitiateRefund" nillable="true" type="tns:RequestInitiateRefund" />
+  <xs:complexType name="ResponseInitiateRefund">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RefundRequestNumber" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseInitiateRefund" nillable="true" type="tns:ResponseInitiateRefund" />
+  <xs:complexType name="RequestRetrievePayMethodDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestRetrievePayMethodDetails" nillable="true" type="tns:RequestRetrievePayMethodDetails" />
+  <xs:complexType name="ResponseRetrievePayMethodDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PayMethod" nillable="true" type="tns:Paymethod" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseRetrievePayMethodDetails" nillable="true" type="tns:ResponseRetrievePayMethodDetails" />
+  <xs:complexType name="RequestAdjustCatchUpPayment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CatchUpAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CatchUpEndDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustCatchUpPayment" nillable="true" type="tns:RequestAdjustCatchUpPayment" />
+  <xs:complexType name="ResponseAdjustCatchUpPayment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustCatchUpPayment" nillable="true" type="tns:ResponseAdjustCatchUpPayment" />
+  <xs:complexType name="RequestRetrieveAuditTrailForDateRange">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestRetrieveAuditTrailForDateRange" nillable="true" type="tns:RequestRetrieveAuditTrailForDateRange" />
+  <xs:complexType name="ResponseRetrieveAuditTrail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Audits" nillable="true" type="tns:ArrayOfAudit" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseRetrieveAuditTrail" nillable="true" type="tns:ResponseRetrieveAuditTrail" />
+  <xs:complexType name="ArrayOfAudit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Audit" nillable="true" type="tns:Audit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAudit" nillable="true" type="tns:ArrayOfAudit" />
+  <xs:complexType name="Audit">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalAccountReferenceNo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Audit" nillable="true" type="tns:Audit" />
+  <xs:complexType name="RequestRetrieveAuditTrailByAccountID">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestRetrieveAuditTrailByAccountID" nillable="true" type="tns:RequestRetrieveAuditTrailByAccountID" />
+  <xs:complexType name="RequestRetrievePaymentHistoryForDateRange">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestRetrievePaymentHistoryForDateRange" nillable="true" type="tns:RequestRetrievePaymentHistoryForDateRange" />
+  <xs:complexType name="ResponseRetrievePaymentHistory">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfPayment" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseRetrievePaymentHistory" nillable="true" type="tns:ResponseRetrievePaymentHistory" />
+  <xs:complexType name="ArrayOfPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Payment" nillable="true" type="tns:Payment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPayment" nillable="true" type="tns:ArrayOfPayment" />
+  <xs:complexType name="Payment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BatchNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalAccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalTransactionIdentifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentAmount" type="xs:decimal" />
+          <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentCode" type="q30:TransactionCode" />
+          <xs:element minOccurs="0" name="PaymentDate" type="xs:dateTime" />
+          <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentErrorCode" type="q31:TransactionErrorCode" />
+          <xs:element minOccurs="0" name="PaymentId" type="xs:decimal" />
+          <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentType" type="q32:PaymentType" />
+          <xs:element minOccurs="0" name="ReversedPaymentId" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CommissionAmount" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Payment" nillable="true" type="tns:Payment" />
+  <xs:complexType name="RequestRetrieveGetBPayTransactionsByDateRange">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContractPrefix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestRetrieveGetBPayTransactionsByDateRange" nillable="true" type="tns:RequestRetrieveGetBPayTransactionsByDateRange" />
+  <xs:complexType name="ResponseRetrieveGetBPayTransactionsByDateRange">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfBPayPayment" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseRetrieveGetBPayTransactionsByDateRange" nillable="true" type="tns:ResponseRetrieveGetBPayTransactionsByDateRange" />
+  <xs:complexType name="ArrayOfBPayPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BPayPayment" nillable="true" type="tns:BPayPayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBPayPayment" nillable="true" type="tns:ArrayOfBPayPayment" />
+  <xs:complexType name="BPayPayment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BatchNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="CRN" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContractPrefix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PaymentDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PaymentId" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PaymentStatus" type="tns:DocketStatus" />
+          <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentType" type="q33:PaymentType" />
+          <xs:element minOccurs="0" name="Receipt" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CommissionAmount" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BPayPayment" nillable="true" type="tns:BPayPayment" />
+  <xs:simpleType name="DocketStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Settled" />
+      <xs:enumeration value="Cleared" />
+      <xs:enumeration value="Failed" />
+      <xs:enumeration value="Pending" />
+      <xs:enumeration value="InRetry" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DocketStatus" nillable="true" type="tns:DocketStatus" />
+  <xs:complexType name="RequestRetrievePaymentHistoryWithFeesForDateRange">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestRetrievePaymentHistoryWithFeesForDateRange" nillable="true" type="tns:RequestRetrievePaymentHistoryWithFeesForDateRange" />
+  <xs:complexType name="ResponseRetrievePaymentHistoryWithFees">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfPayment" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseRetrievePaymentHistoryWithFees" nillable="true" type="tns:ResponseRetrievePaymentHistoryWithFees" />
+  <xs:complexType name="ResponseRetrievePaymentHistoryCW">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfPaymentCW" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseRetrievePaymentHistoryCW" nillable="true" type="tns:ResponseRetrievePaymentHistoryCW" />
+  <xs:complexType name="ArrayOfPaymentCW">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaymentCW" nillable="true" type="tns:PaymentCW" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaymentCW" nillable="true" type="tns:ArrayOfPaymentCW" />
+  <xs:complexType name="PaymentCW">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BatchNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalAccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalTransactionIdentifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Firstname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Lastname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentAmount" type="xs:decimal" />
+          <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentCode" type="q34:TransactionCode" />
+          <xs:element minOccurs="0" name="PaymentDate" type="xs:dateTime" />
+          <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentErrorCode" type="q35:TransactionErrorCode" />
+          <xs:element minOccurs="0" name="PaymentId" type="xs:decimal" />
+          <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentType" type="q36:PaymentType" />
+          <xs:element minOccurs="0" name="ReversedPaymentId" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PaymentCW" nillable="true" type="tns:PaymentCW" />
+  <xs:complexType name="ResponseRetrievePaymentHistoryWithFeesCW">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfPaymentCW" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseRetrievePaymentHistoryWithFeesCW" nillable="true" type="tns:ResponseRetrievePaymentHistoryWithFeesCW" />
+  <xs:complexType name="RequestRetrievePaymentHistoryByAccountID">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestRetrievePaymentHistoryByAccountID" nillable="true" type="tns:RequestRetrievePaymentHistoryByAccountID" />
+  <xs:complexType name="RequestRetrievePaymentHistoryWithFeesByAccountID">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestRetrievePaymentHistoryWithFeesByAccountID" nillable="true" type="tns:RequestRetrievePaymentHistoryWithFeesByAccountID" />
+  <xs:complexType name="RequestResumePayment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestResumePayment" nillable="true" type="tns:RequestResumePayment" />
+  <xs:complexType name="ResponseResumePayment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseResumePayment" nillable="true" type="tns:ResponseResumePayment" />
+  <xs:complexType name="RequestAdjustAccountClientAddress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewAddress" nillable="true" type="tns:Address" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustAccountClientAddress" nillable="true" type="tns:RequestAdjustAccountClientAddress" />
+  <xs:complexType name="ResponseAdjustAccountClientAddress">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustAccountClientAddress" nillable="true" type="tns:ResponseAdjustAccountClientAddress" />
+  <xs:complexType name="RequestAdjustAccountClientDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerDetail" nillable="true" type="tns:CustomerDetail" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustAccountClientDetails" nillable="true" type="tns:RequestAdjustAccountClientDetails" />
+  <xs:complexType name="ResponseAdjustAccountClientDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustAccountClientDetails" nillable="true" type="tns:ResponseAdjustAccountClientDetails" />
+  <xs:complexType name="RequestAdjustGuarantorDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewGuarantorDetails" nillable="true" type="tns:GuarantorDetails" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustGuarantorDetails" nillable="true" type="tns:RequestAdjustGuarantorDetails" />
+  <xs:complexType name="GuarantorDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="Country" type="q37:Country" />
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HomePhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Locality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Postcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Relationship" nillable="true" type="xs:string" />
+      <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="State" nillable="true" type="q38:AUSStates" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Suburb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkPhone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GuarantorDetails" nillable="true" type="tns:GuarantorDetails" />
+  <xs:complexType name="ResponseAdjustGuarantorDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustGuarantorDetails" nillable="true" type="tns:ResponseAdjustGuarantorDetails" />
+  <xs:complexType name="RequestAdjustAccountClientEmail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="tns:Email" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustAccountClientEmail" nillable="true" type="tns:RequestAdjustAccountClientEmail" />
+  <xs:complexType name="ResponseAdjustAccountClientEmail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustAccountClientEmail" nillable="true" type="tns:ResponseAdjustAccountClientEmail" />
+  <xs:complexType name="RequestAdjustAccountClientPhone">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="tns:Phone" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustAccountClientPhone" nillable="true" type="tns:RequestAdjustAccountClientPhone" />
+  <xs:complexType name="ResponseAdjustAccountClientPhone">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustAccountClientPhone" nillable="true" type="tns:ResponseAdjustAccountClientPhone" />
+  <xs:complexType name="RequestDeletePaySchedule">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PayScheduleId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestDeletePaySchedule" nillable="true" type="tns:RequestDeletePaySchedule" />
+  <xs:complexType name="ResponseDeletePaySchedule">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseDeletePaySchedule" nillable="true" type="tns:ResponseDeletePaySchedule" />
+  <xs:complexType name="RequestAdjustPaySchedule">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdjustFutureSchedules" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DeleteFutureSchedules" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PaySchedule" nillable="true" type="tns:RequestPaySchedule" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustPaySchedule" nillable="true" type="tns:RequestAdjustPaySchedule" />
+  <xs:complexType name="ResponseAdjustPaySchedule">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustPaySchedule" nillable="true" type="tns:ResponseAdjustPaySchedule" />
+  <xs:complexType name="RequestAdjustSuspensionEndDate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewEndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PayScheduleId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustSuspensionEndDate" nillable="true" type="tns:RequestAdjustSuspensionEndDate" />
+  <xs:complexType name="ResponseAdjustSuspensionEndDate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustSuspensionEndDate" nillable="true" type="tns:ResponseAdjustSuspensionEndDate" />
+  <xs:complexType name="RequestSuspendAccount">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MinimumEffectiveDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="NumberOfPaymentCycles" type="xs:int" />
+          <xs:element minOccurs="0" name="SuspensionFee" type="xs:decimal" />
+          <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="SuspensionFeeFrequency" type="q39:Frequency" />
+          <xs:element minOccurs="0" name="DDStop" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ODMailStop" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestSuspendAccount" nillable="true" type="tns:RequestSuspendAccount" />
+  <xs:complexType name="ResponseSuspendAccount">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseSuspendAccount" nillable="true" type="tns:ResponseSuspendAccount" />
+  <xs:complexType name="RequestSuspendAccountBetweenDates">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SuspensionFee" type="xs:decimal" />
+          <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="SuspensionFeeFrequency" type="q40:Frequency" />
+          <xs:element minOccurs="0" name="DDStop" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ODMailStop" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestSuspendAccountBetweenDates" nillable="true" type="tns:RequestSuspendAccountBetweenDates" />
+  <xs:complexType name="ResponseAdjustAccountAppendNotes">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustAccountAppendNotes" nillable="true" type="tns:ResponseAdjustAccountAppendNotes" />
+  <xs:complexType name="RequestAdjustPaymentInAdvance">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IncreasedPaymentAmount" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustPaymentInAdvance" nillable="true" type="tns:RequestAdjustPaymentInAdvance" />
+  <xs:complexType name="ResponseAdjustPaymentInAdvance">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustPaymentInAdvance" nillable="true" type="tns:ResponseAdjustPaymentInAdvance" />
+  <xs:complexType name="RequestAdjustAccountPaymentMethod">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewPaymethod" nillable="true" type="tns:Paymethod" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustAccountPaymentMethod" nillable="true" type="tns:RequestAdjustAccountPaymentMethod" />
+  <xs:complexType name="ResponseAdjustAccountPaymentMethod">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustAccountPaymentMethod" nillable="true" type="tns:ResponseAdjustAccountPaymentMethod" />
+  <xs:complexType name="RequestAdjustAccountFixedTerm">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TerminationDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustAccountFixedTerm" nillable="true" type="tns:RequestAdjustAccountFixedTerm" />
+  <xs:complexType name="ResponseAdjustAccountFixedTerm">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MinTermAmount" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustAccountFixedTerm" nillable="true" type="tns:ResponseAdjustAccountFixedTerm" />
+  <xs:complexType name="RequestAdjustAccountFixedTermAF">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TerminationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FinalBillDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestAdjustAccountFixedTermAF" nillable="true" type="tns:RequestAdjustAccountFixedTermAF" />
+  <xs:complexType name="RequestProcessCardPaymentForCustomerAccount">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageForCardTransactionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountHolder" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CVC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CardNumber" nillable="true" type="xs:string" />
+          <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="CreditCardType" type="q41:CreditCardType" />
+          <xs:element minOccurs="0" name="ExpiryDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PayerAuthorisationResponse" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestProcessCardPaymentForCustomerAccount" nillable="true" type="tns:RequestProcessCardPaymentForCustomerAccount" />
+  <xs:complexType name="RequestMessageForCardTransactionBase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageByAccountIdBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ExternalTransactionIdentifier" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestMessageForCardTransactionBase" nillable="true" type="tns:RequestMessageForCardTransactionBase" />
+  <xs:complexType name="ResponseProcessCardPaymentForCustomerAccount">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PayerAuthenticationRequest" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PayerAuthenticationUrl" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentGatewayResponse" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransactionStatus" type="tns:TransactionStatus" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseProcessCardPaymentForCustomerAccount" nillable="true" type="tns:ResponseProcessCardPaymentForCustomerAccount" />
+  <xs:simpleType name="TransactionStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSubmitted" />
+      <xs:enumeration value="Processing" />
+      <xs:enumeration value="ServiceBusy" />
+      <xs:enumeration value="Declined" />
+      <xs:enumeration value="Authorised" />
+      <xs:enumeration value="Requires3ds" />
+      <xs:enumeration value="StatusRequired" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransactionStatus" nillable="true" type="tns:TransactionStatus" />
+  <xs:complexType name="RequestProcessRealTimeCardPayment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageForCardTransactionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountHolder" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CVC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CardNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreateOneOffCharge" type="xs:boolean" />
+          <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="CreditCardType" type="q42:CreditCardType" />
+          <xs:element minOccurs="0" name="ExpiryDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PayerAuthorisationResponse" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UseStoredCreditCard" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestProcessRealTimeCardPayment" nillable="true" type="tns:RequestProcessRealTimeCardPayment" />
+  <xs:complexType name="ResponseProcessRealTimeCardPayment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PayerAuthenticationRequest" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PayerAuthenticationUrl" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentGatewayResponse" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TransactionStatus" type="tns:TransactionStatus" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseProcessRealTimeCardPayment" nillable="true" type="tns:ResponseProcessRealTimeCardPayment" />
+  <xs:complexType name="RequestGetCardPaymentStatusForCustomerAccount">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageForCardTransactionBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestGetCardPaymentStatusForCustomerAccount" nillable="true" type="tns:RequestGetCardPaymentStatusForCustomerAccount" />
+  <xs:complexType name="RequestGetFacilityAccountConfiguration">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageFacilityBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestGetFacilityAccountConfiguration" nillable="true" type="tns:RequestGetFacilityAccountConfiguration" />
+  <xs:complexType name="ResponseGetFacilityAccountConfiguration">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CCCommissionRate" type="xs:decimal" />
+          <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="CCCommissionType" nillable="true" type="q43:ChargeType" />
+          <xs:element minOccurs="0" name="COCommissionRate" type="xs:decimal" />
+          <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="COCommissionType" nillable="true" type="q44:ChargeType" />
+          <xs:element minOccurs="0" name="DDCommissionRate" type="xs:decimal" />
+          <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="DDCommissionType" nillable="true" type="q45:ChargeType" />
+          <xs:element minOccurs="0" name="EstablishmentFeeAmount" type="xs:decimal" />
+          <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="EstablishmentFeePayer" nillable="true" type="q46:EstablishmentFeeStatus" />
+          <xs:element minOccurs="0" name="EstablishmentFeePercent" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseGetFacilityAccountConfiguration" nillable="true" type="tns:ResponseGetFacilityAccountConfiguration" />
+  <xs:simpleType name="PayMethodType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSpecified" />
+      <xs:enumeration value="BankAccount" />
+      <xs:enumeration value="CreditCard" />
+      <xs:enumeration value="Both" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PayMethodType" nillable="true" type="tns:PayMethodType" />
+  <xs:simpleType name="PayNowRequestType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSpecified" />
+      <xs:enumeration value="RealTimePayment" />
+      <xs:enumeration value="UpdatePaymentDetail" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PayNowRequestType" nillable="true" type="tns:PayNowRequestType" />
+  <xs:complexType name="ArrayOfCasualPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CasualPayment" nillable="true" type="tns:CasualPayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCasualPayment" nillable="true" type="tns:ArrayOfCasualPayment" />
+  <xs:complexType name="CasualPayment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CommissionAmount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PaymentDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PaymentId" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PaymentRef" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentStatus" type="tns:DocketStatus" />
+          <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentType" nillable="true" type="q47:PaymentType" />
+          <xs:element minOccurs="0" name="Receipt" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CasualPayment" nillable="true" type="tns:CasualPayment" />
+  <xs:complexType name="RequestGetMonthlyCollections">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestGetMonthlyCollections" nillable="true" type="tns:RequestGetMonthlyCollections" />
+  <xs:complexType name="ResponseGetMonthlyCollections">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.Entities" minOccurs="0" name="MonthlyCollections" nillable="true" type="q48:ArrayOfMonthlyCollection" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseGetMonthlyCollections" nillable="true" type="tns:ResponseGetMonthlyCollections" />
+  <xs:complexType name="ResponseAdjustAccountTerminationDate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseAdjustAccountTerminationDate" nillable="true" type="tns:ResponseAdjustAccountTerminationDate" />
+  <xs:complexType name="RequestGetClosedAccountsForDateRange">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ContractPrefix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestGetClosedAccountsForDateRange" nillable="true" type="tns:RequestGetClosedAccountsForDateRange" />
+  <xs:complexType name="ResponseGetClosedAccountsForDateRange">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.Entities" minOccurs="0" name="Accounts" nillable="true" type="q49:ArrayOfClosedAccount" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseGetClosedAccountsForDateRange" nillable="true" type="tns:ResponseGetClosedAccountsForDateRange" />
+</xs:schema>

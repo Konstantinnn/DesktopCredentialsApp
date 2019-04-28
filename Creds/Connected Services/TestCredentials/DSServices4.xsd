@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" />
+  <xs:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" />
+  <xs:complexType name="ArrayOfAccountOverdueStatusChange">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccountOverdueStatusChange" nillable="true" type="tns:AccountOverdueStatusChange" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccountOverdueStatusChange" nillable="true" type="tns:ArrayOfAccountOverdueStatusChange" />
+  <xs:complexType name="AccountOverdueStatusChange">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountReferenceNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalAccountReferenceNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromOverdueAmount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FromOverdueStatus" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="FromOverdueStatusChangeDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ToOverdueAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ToOverdueStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="ToOverdueStatusChangeDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccountOverdueStatusChange" nillable="true" type="tns:AccountOverdueStatusChange" />
+  <xs:complexType name="ArrayOfMonthlyCollection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MonthlyCollection" nillable="true" type="tns:MonthlyCollection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMonthlyCollection" nillable="true" type="tns:ArrayOfMonthlyCollection" />
+  <xs:complexType name="MonthlyCollection">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q1:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CollectionAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FacilityAccountContractPrefix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FacilityAccountDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FacilityName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MonthStart" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MonthlyCollection" nillable="true" type="tns:MonthlyCollection" />
+  <xs:complexType name="ArrayOfActiveAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ActiveAccount" nillable="true" type="tns:ActiveAccount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActiveAccount" nillable="true" type="tns:ArrayOfActiveAccount" />
+  <xs:complexType name="ActiveAccount">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q2:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContractPrefix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalAccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FacilityName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActiveAccount" nillable="true" type="tns:ActiveAccount" />
+  <xs:complexType name="ArrayOfAccountWithPayments">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccountWithPayments" nillable="true" type="tns:AccountWithPayments" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccountWithPayments" nillable="true" type="tns:ArrayOfAccountWithPayments" />
+  <xs:complexType name="AccountWithPayments">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q3:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalAccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfPaymentWithPaySchedule" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AccountWithPayments" nillable="true" type="tns:AccountWithPayments" />
+  <xs:complexType name="ArrayOfPaymentWithPaySchedule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaymentWithPaySchedule" nillable="true" type="tns:PaymentWithPaySchedule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaymentWithPaySchedule" nillable="true" type="tns:ArrayOfPaymentWithPaySchedule" />
+  <xs:complexType name="PaymentWithPaySchedule">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q4:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PaySchedules" nillable="true" type="tns:ArrayOfPayScheduleQik" />
+          <xs:element minOccurs="0" name="PaymentAmount" type="xs:decimal" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentCode" type="q5:TransactionCode" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentErrorCode" type="q6:TransactionErrorCode" />
+          <xs:element minOccurs="0" name="PaymentId" type="xs:long" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentType" type="q7:PaymentType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PaymentWithPaySchedule" nillable="true" type="tns:PaymentWithPaySchedule" />
+  <xs:complexType name="ArrayOfPayScheduleQik">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PayScheduleQik" nillable="true" type="tns:PayScheduleQik" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPayScheduleQik" nillable="true" type="tns:ArrayOfPayScheduleQik" />
+  <xs:complexType name="PayScheduleQik">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q8:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalIdentifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InRetry" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Installment" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Paid" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PaymentStatus" type="q8:DocketStatus" />
+          <xs:element minOccurs="0" name="ScheduleId" type="xs:int" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StatusDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PayScheduleQik" nillable="true" type="tns:PayScheduleQik" />
+  <xs:complexType name="ArrayOfPaymentForPaymentsWithSchedules">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaymentForPaymentsWithSchedules" nillable="true" type="tns:PaymentForPaymentsWithSchedules" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaymentForPaymentsWithSchedules" nillable="true" type="tns:ArrayOfPaymentForPaymentsWithSchedules" />
+  <xs:complexType name="PaymentForPaymentsWithSchedules">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q9:EntityBaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BatchNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="CommissionAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalAccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalTransactionIdentifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaySchedules" nillable="true" type="tns:ArrayOfPayScheduleQik" />
+          <xs:element minOccurs="0" name="PaymentAmount" type="xs:decimal" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentCode" type="q10:TransactionCode" />
+          <xs:element minOccurs="0" name="PaymentDate" type="xs:dateTime" />
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentErrorCode" type="q11:TransactionErrorCode" />
+          <xs:element minOccurs="0" name="PaymentId" type="xs:long" />
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" minOccurs="0" name="PaymentType" type="q12:PaymentType" />
+          <xs:element minOccurs="0" name="ReversedPaymentId" type="xs:long" />
+          <xs:element minOccurs="0" name="TransactionDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="WasRetry" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PaymentForPaymentsWithSchedules" nillable="true" type="tns:PaymentForPaymentsWithSchedules" />
+  <xs:complexType name="ArrayOfClosedAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClosedAccount" nillable="true" type="tns:ClosedAccount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClosedAccount" nillable="true" type="tns:ArrayOfClosedAccount" />
+  <xs:complexType name="ClosedAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountReferenceNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CancelReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContractPrefix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomCancelReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateAccountClosed" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ExternalAccountReferenceNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClosedAccount" nillable="true" type="tns:ClosedAccount" />
+</xs:schema>

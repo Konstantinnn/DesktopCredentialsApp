@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.ResponseMessages" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.ResponseMessages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.Entities" />
+  <xs:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" />
+  <xs:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ResponseRetrieveOverdueStatusHistory">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q1:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.Entities" name="OverdueStatusChanges" nillable="true" type="q2:ArrayOfAccountOverdueStatusChange" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseRetrieveOverdueStatusHistory" nillable="true" type="tns:ResponseRetrieveOverdueStatusHistory" />
+  <xs:complexType name="ResponseGetPaymentToken">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q3:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountId" type="ser:guid" />
+          <xs:element minOccurs="0" name="PaymentFormURL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ValidTo" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="WebhookToken" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseGetPaymentToken" nillable="true" type="tns:ResponseGetPaymentToken" />
+  <xs:complexType name="ResponseGetCasualPaymentToken">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q4:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PaymentFormURL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ValidTo" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="WebhookToken" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseGetCasualPaymentToken" nillable="true" type="tns:ResponseGetCasualPaymentToken" />
+  <xs:complexType name="ResponseGetCasualPaymentsForDateRange">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q5:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Payments" nillable="true" type="q5:ArrayOfCasualPayment" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseGetCasualPaymentsForDateRange" nillable="true" type="tns:ResponseGetCasualPaymentsForDateRange" />
+  <xs:complexType name="ResponseGetCasualPaymentsByPaymentRef">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q6:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Payments" nillable="true" type="q6:ArrayOfCasualPayment" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseGetCasualPaymentsByPaymentRef" nillable="true" type="tns:ResponseGetCasualPaymentsByPaymentRef" />
+  <xs:complexType name="ResponseGetActiveAccounts">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q7:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.Entities" minOccurs="0" name="ActiveAccounts" nillable="true" type="q8:ArrayOfActiveAccount" />
+          <xs:element minOccurs="0" name="TotalActiveAccounts" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalPageCount" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseGetActiveAccounts" nillable="true" type="tns:ResponseGetActiveAccounts" />
+  <xs:complexType name="ResponseTransferCustomerAccount">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q9:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FacilityIdentifier" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseTransferCustomerAccount" nillable="true" type="tns:ResponseTransferCustomerAccount" />
+  <xs:complexType name="ResponseGetPaymentHistoryByStatusForDateRange">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q10:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.Entities" minOccurs="0" name="Accounts" nillable="true" type="q11:ArrayOfAccountWithPayments" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseGetPaymentHistoryByStatusForDateRange" nillable="true" type="tns:ResponseGetPaymentHistoryByStatusForDateRange" />
+  <xs:complexType name="ResponseGetPaymentHistoryStatusByAccountId">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core" base="q12:ResponseMessageBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalAccountReferenceNo" nillable="true" type="xs:string" />
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Debitsuccess.WebServices.Core.Entities" minOccurs="0" name="PaymentsWithSchedules" nillable="true" type="q13:ArrayOfPaymentForPaymentsWithSchedules" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseGetPaymentHistoryStatusByAccountId" nillable="true" type="tns:ResponseGetPaymentHistoryStatusByAccountId" />
+</xs:schema>

@@ -1,0 +1,38 @@
+﻿<Window x:Class="Creds.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Creds"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="500">
+    <Border Padding="10">
+        <StackPanel Margin="10 10 10 10">
+            <StackPanel>
+                <TextBlock Text="Region" FontWeight="Bold"/>
+                <ComboBox x:Name="RegionBox"  SelectedIndex="0" Margin="0 5 00 10" Width="120">
+                    <ComboBoxItem Content="OC"/>
+                    <ComboBoxItem Content="OC-Test"/>
+                    <ComboBoxItem Content="US"/>
+                </ComboBox>
+            </StackPanel>
+            <TextBlock  Text="UserName" />
+            <TextBox x:Name="UserNameText"></TextBox>
+            <TextBlock  Text="Password" />
+            <TextBox x:Name="PasswordText"></TextBox>
+            <TextBlock Text="ContractPrefix" />
+            <TextBox x:Name="ContractPrefixText" Margin="0 0 0 20"></TextBox>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ApplyButton" Click="ApplyButton_Click" Margin="60 0 60 0" Grid.Column="0" Content="Apply"></Button>
+                <Button x:Name="ResetButton" Click="ResetButton_Click"  Margin="60 0 60 0" Grid.Column="1" Content="Reset"></Button>
+            </Grid>
+            <Label Margin="50" Background="#0F0" x:Name="labelModel"></Label>
+
+        </StackPanel>
+    </Border>
+</Window>

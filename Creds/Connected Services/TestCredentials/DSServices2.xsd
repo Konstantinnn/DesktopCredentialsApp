@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Debitsuccess.Framework" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://oc.services.debitsuccess.com/DSWebService/DSServices.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="AUSStates">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSpecified" />
+      <xs:enumeration value="AustralianCapitalTerritory" />
+      <xs:enumeration value="NewSouthWales" />
+      <xs:enumeration value="NorthernTerritory" />
+      <xs:enumeration value="Queensland" />
+      <xs:enumeration value="SouthAustralia" />
+      <xs:enumeration value="Tasmania" />
+      <xs:enumeration value="Victoria" />
+      <xs:enumeration value="WesternAustralia" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AUSStates" nillable="true" type="tns:AUSStates" />
+  <xs:simpleType name="Country">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Australia" />
+      <xs:enumeration value="NewZealand" />
+      <xs:enumeration value="HongKong" />
+      <xs:enumeration value="UnitedStatesOfAmerica" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Country" nillable="true" type="tns:Country" />
+  <xs:simpleType name="AccountType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BankAccount" />
+      <xs:enumeration value="CreditCard" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AccountType" nillable="true" type="tns:AccountType" />
+  <xs:simpleType name="PhoneCountryCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSpecified" />
+      <xs:enumeration value="Aus" />
+      <xs:enumeration value="NZ" />
+      <xs:enumeration value="HKG" />
+      <xs:enumeration value="USA" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PhoneCountryCode" nillable="true" type="tns:PhoneCountryCode" />
+  <xs:simpleType name="CreditCardType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="AmericanExpress" />
+      <xs:enumeration value="Diners" />
+      <xs:enumeration value="Mastercard" />
+      <xs:enumeration value="Visa" />
+      <xs:enumeration value="Token" />
+      <xs:enumeration value="Discover" />
+      <xs:enumeration value="JCB" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CreditCardType" nillable="true" type="tns:CreditCardType" />
+  <xs:simpleType name="Gender">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Female" />
+      <xs:enumeration value="Male" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Gender" nillable="true" type="tns:Gender" />
+  <xs:simpleType name="Frequency">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSpecified" />
+      <xs:enumeration value="OneOff" />
+      <xs:enumeration value="Weekly" />
+      <xs:enumeration value="Fortnightly" />
+      <xs:enumeration value="FourWeekly" />
+      <xs:enumeration value="Monthly" />
+      <xs:enumeration value="BiMonthly" />
+      <xs:enumeration value="Quarterly" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Frequency" nillable="true" type="tns:Frequency" />
+  <xs:simpleType name="TermType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Months" />
+      <xs:enumeration value="Payments" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TermType" nillable="true" type="tns:TermType" />
+  <xs:simpleType name="AddressType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Business" />
+      <xs:enumeration value="Home" />
+      <xs:enumeration value="Physical" />
+      <xs:enumeration value="Postal" />
+      <xs:enumeration value="Previous" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AddressType" nillable="true" type="tns:AddressType" />
+  <xs:simpleType name="PhoneType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Emergency" />
+      <xs:enumeration value="Fax" />
+      <xs:enumeration value="Home" />
+      <xs:enumeration value="Mobile" />
+      <xs:enumeration value="Previous" />
+      <xs:enumeration value="Work" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PhoneType" nillable="true" type="tns:PhoneType" />
+  <xs:simpleType name="PaymentCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AgentFee" />
+      <xs:enumeration value="AttachmentOrder" />
+      <xs:enumeration value="CancellationFee" />
+      <xs:enumeration value="CaseCloseFee" />
+      <xs:enumeration value="Commission" />
+      <xs:enumeration value="Correspondence" />
+      <xs:enumeration value="DebtCallFee" />
+      <xs:enumeration value="DefaultFee" />
+      <xs:enumeration value="DocumentPreparationFee" />
+      <xs:enumeration value="EstablishmentFee" />
+      <xs:enumeration value="ExaminationOrder" />
+      <xs:enumeration value="FieldCall" />
+      <xs:enumeration value="Judgement" />
+      <xs:enumeration value="MiscellaneousFee" />
+      <xs:enumeration value="NoticeOfProceedings" />
+      <xs:enumeration value="OneOffPayment" />
+      <xs:enumeration value="Payment" />
+      <xs:enumeration value="PaymentVariationFee" />
+      <xs:enumeration value="PenaltyFee" />
+      <xs:enumeration value="Service" />
+      <xs:enumeration value="StatementFee" />
+      <xs:enumeration value="SuspensionFee" />
+      <xs:enumeration value="TraceFee" />
+      <xs:enumeration value="TransferFee" />
+      <xs:enumeration value="VariationFee" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PaymentCode" nillable="true" type="tns:PaymentCode" />
+  <xs:simpleType name="TransactionCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoSpecified" />
+      <xs:enumeration value="Payment" />
+      <xs:enumeration value="DebtCollectionPayment" />
+      <xs:enumeration value="DefaultFee" />
+      <xs:enumeration value="EstablishmentFee" />
+      <xs:enumeration value="MiscellaneousFee" />
+      <xs:enumeration value="PaidAtBusiness" />
+      <xs:enumeration value="PenaltyFee" />
+      <xs:enumeration value="OneOffPayment" />
+      <xs:enumeration value="DebtCallFee" />
+      <xs:enumeration value="PaymentVariationFee" />
+      <xs:enumeration value="StatementFee" />
+      <xs:enumeration value="AccountTransfer" />
+      <xs:enumeration value="TransferFee" />
+      <xs:enumeration value="Service" />
+      <xs:enumeration value="Commission" />
+      <xs:enumeration value="DocumentPreparationFee" />
+      <xs:enumeration value="Judgement" />
+      <xs:enumeration value="AttachmentOrder" />
+      <xs:enumeration value="ExaminationOrder" />
+      <xs:enumeration value="NoticeOfProceedings" />
+      <xs:enumeration value="Correspondence" />
+      <xs:enumeration value="AgentFee" />
+      <xs:enumeration value="FieldCall" />
+      <xs:enumeration value="TraceFee" />
+      <xs:enumeration value="CaseCloseFee" />
+      <xs:enumeration value="Refund" />
+      <xs:enumeration value="VariationFee" />
+      <xs:enumeration value="FacilityVariationFee" />
+      <xs:enumeration value="SuspensionFee" />
+      <xs:enumeration value="CancellationFee" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransactionCode" nillable="true" type="tns:TransactionCode" />
+  <xs:simpleType name="TransactionErrorCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoAuthority" />
+      <xs:enumeration value="AccountClosed" />
+      <xs:enumeration value="InsufficientFunds" />
+      <xs:enumeration value="AuthorityStopped" />
+      <xs:enumeration value="NoError" />
+      <xs:enumeration value="InvalidAccount" />
+      <xs:enumeration value="Declined" />
+      <xs:enumeration value="CardExpired" />
+      <xs:enumeration value="RestrictedCard" />
+      <xs:enumeration value="LostOrStolenCard" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransactionErrorCode" nillable="true" type="tns:TransactionErrorCode" />
+  <xs:simpleType name="PaymentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DirectDebit" />
+      <xs:enumeration value="AutomaticPayment" />
+      <xs:enumeration value="CreditCard" />
+      <xs:enumeration value="BankImport" />
+      <xs:enumeration value="Cash" />
+      <xs:enumeration value="Cheque" />
+      <xs:enumeration value="DebtCollection" />
+      <xs:enumeration value="DirectCredit" />
+      <xs:enumeration value="MoneyOrder" />
+      <xs:enumeration value="PaidtoFacility" />
+      <xs:enumeration value="TelephoneBanking" />
+      <xs:enumeration value="Transfer" />
+      <xs:enumeration value="Suspense" />
+      <xs:enumeration value="EFTPOS" />
+      <xs:enumeration value="ManualReceipting" />
+      <xs:enumeration value="ReAllocation" />
+      <xs:enumeration value="CreditCardOther" />
+      <xs:enumeration value="CreditUnion" />
+      <xs:enumeration value="BPAY" />
+      <xs:enumeration value="BPAYCreditCard" />
+      <xs:enumeration value="BPAYCreditCardOther" />
+      <xs:enumeration value="WebPayCreditCard" />
+      <xs:enumeration value="WebPayCreditCardOther" />
+      <xs:enumeration value="CasualCreditCard" />
+      <xs:enumeration value="CasualCreditCardOther" />
+      <xs:enumeration value="CasualPointofSale" />
+      <xs:enumeration value="CasualPointofSaleOther" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PaymentType" nillable="true" type="tns:PaymentType" />
+  <xs:simpleType name="ChargeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotConfigured" />
+      <xs:enumeration value="PerTransaction" />
+      <xs:enumeration value="Percentage" />
+      <xs:enumeration value="PercentagePlusPerTransaction" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ChargeType" nillable="true" type="tns:ChargeType" />
+  <xs:simpleType name="EstablishmentFeeStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ClientPaysEstablishmentFee">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FacilityPaysEstablishmentFee">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NoEstablishmentFee">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EstablishmentFeeStatus" nillable="true" type="tns:EstablishmentFeeStatus" />
+</xs:schema>
